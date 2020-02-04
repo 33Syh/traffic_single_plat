@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="140px" height="118px" viewBox="0 0 140 118" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.1 (72631) - https://sketchapp.com -->
+    <title>相位图-背景</title>
+    <desc>Created with Sketch.</desc>
+    <g id="相位图-背景" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="相位图-a">
+            <rect id="矩形" fill="#FFFFFF" x="0" y="0" width="140" height="118"></rect>
+            <path d="M36,29 L36,0 L37,0 L37,29 L37,30 L0,30 L0,29 L36,29 Z" id="Combined-Shape" fill="#E5E5E5" fill-rule="nonzero"></path>
+            <path d="M36,117 L36,88 L37,88 L37,117 L37,118 L0,118 L0,117 L36,117 Z" id="Combined-Shape-Copy" fill="#E5E5E5" fill-rule="nonzero" transform="translate(18.500000, 103.000000) scale(1, -1) translate(-18.500000, -103.000000) "></path>
+            <path d="M139,29 L139,0 L140,0 L140,29 L140,30 L103,30 L103,29 L139,29 Z" id="Combined-Shape-Copy-3" fill="#E5E5E5" fill-rule="nonzero" transform="translate(121.500000, 15.000000) scale(-1, 1) translate(-121.500000, -15.000000) "></path>
+            <path d="M139,117 L139,88 L140,88 L140,117 L140,118 L103,118 L103,117 L139,117 Z" id="Combined-Shape-Copy-2" fill="#E5E5E5" fill-rule="nonzero" transform="translate(121.500000, 103.000000) scale(-1, -1) translate(-121.500000, -103.000000) "></path>
+            <g id="箭头" transform="translate(113.000000, 11.000000) rotate(-90.000000) translate(-113.000000, -11.000000) translate(108.000000, 6.000000)" fill="#000000" fill-rule="nonzero">
+                <polygon id="路径" points="5.32156711e-17 10 1.79012592 4.99288365 0 0 10 4.99288365"></polygon>
+            </g>
+            <text id="北" font-family="PingFangSC-Regular, PingFang SC" font-size="12" font-weight="normal" fill="#000000">
+                <tspan x="120" y="16">北</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

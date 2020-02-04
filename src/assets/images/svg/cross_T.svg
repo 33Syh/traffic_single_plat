@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="108px" height="99px" viewBox="0 0 108 99" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.1 (72631) - https://sketchapp.com -->
+    <title>路口-T字形</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="53" y="15" width="1" height="83"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="1" height="83" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <rect id="path-3" x="53" y="-37" width="1" height="105"></rect>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="1" height="105" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="02中控台-配置1-路口信息" transform="translate(-607.000000, -557.000000)" fill="#999999" stroke="#BFBFBF">
+            <g id="路口-T字形" transform="translate(607.000000, 557.000000)">
+                <path d="M107.5,31.5 L107.5,0.5 L0.5,0.5 L0.5,31.5 L38.5,31.5 L38.5,98.5 L69.5,98.5 L69.5,31.5 L107.5,31.5 Z"></path>
+                <use id="矩形" mask="url(#mask-2)" stroke-width="2" stroke-dasharray="3,10" xlink:href="#path-1"></use>
+                <use id="矩形-copy-3" mask="url(#mask-4)" stroke-width="2" stroke-dasharray="3,10" transform="translate(53.500000, 15.500000) rotate(90.000000) translate(-53.500000, -15.500000) " xlink:href="#path-3"></use>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,127 @@
+.monitor
+  .monitor_title
+    height 42px
+    line-height 42px
+    h5
+      color #4D4D4D
+      font-size 15px
+      text-indent 5px
+  .main-layout
+    // padding 0
+  .monitor_layout
+    min-width  294px
+  .video_layout
+    // min-height 272px
+    min-width  278px
+    font-size 14px
+    .camera_direct
+      height 34px
+      line-height 34px
+      position relative
+      span:nth-child(1)
+        margin-left 20px
+      span:nth-child(2),span:nth-child(3)
+        height 14px
+        width 14px
+        position absolute
+        top 10px
+        right 10px
+        background url('../assets/images/enlarge.png') no-repeat
+        background-size 100%
+        cursor pointer
+      span:nth-child(3)
+        background url('../assets/images/reduce.png') no-repeat
+        background-size 100%
+    .video_box
+      min-height 160px
+      min-width 275px
+      background-color #000
+      position relative
+      overflow hidden
+      .video_mask
+        width 100%
+        height 100%
+        display block
+        position absolute
+        top 0
+        left 0
+        background url('../assets/images/halt.png') no-repeat
+        background-size 100% 100%
+        cursor pointer
+        &:hover
+          i
+            font-size 1.6em
+        &::after
+          content ''
+          width 100%
+          height 100%
+          display: block
+          background-color: rgba(0, 0, 0, 0.7)
+        i
+          display block
+          height 1.5em
+          width 1.5em
+          font-size 1.5em
+          border-radius 50%
+          position absolute
+          top 50%
+          left 50%
+          transform translate(-0.75em, -0.75em)
+          background url('../assets/images/play_btn.png') no-repeat
+          background-size 100% 100%
+      .video-js.vjs-fluid, .video-js.vjs-16-9, .video-js.vjs-4-3
+        height 100%
+        // max-height 165px
+        // max-width 294px
+        margin 0 auto
+        // width 0
+    .video_boxs
+      min-width 865px
+      background-color #000
+      margin 0 auto
+      .video-js.vjs-fluid, .video-js.vjs-16-9, .video-js.vjs-4-3
+        height 100%
+        margin 0 auto
+    p
+      height 14px
+      line-height 14px
+      margin 7px
+      margin-top 0px
+      .lable_name
+        width 100px
+        color #666666
+        display inline-block
+        padding-left 5px
+  .tag_line
+    &::before
+      content ''
+      width 3px
+      height 14px
+      background-color #FF6600
+      display inline-block
+      margin-right 8px
+      position relative
+      top 1px
+  .video_details
+    font-size 14px
+    color #333333
+    h3
+      font-size 16px
+      height 16px
+      line-height 16px
+      margin-top 20px
+    .tag_line
+      color #333333
+      margin 20px 0
+    p
+      height 14px
+      line-height 14px
+    .lable_name
+      display inline-block
+      width 60px
+      color #666666
+    div
+      p
+        height 14px
+        line-height 14px
+        margin-bottom 15px

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="370px" height="314px" viewBox="0 0 370 314" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.1 (72631) - https://sketchapp.com -->
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="矩形" fill="#F5F5F5" x="0" y="0" width="370" height="314"></rect>
+        <rect id="矩形" fill="#4D4D4D" x="0" y="47" width="370" height="220"></rect>
+        <rect id="矩形-copy-9" fill="#4D4D4D" x="75" y="0" width="220" height="314"></rect>
+        <rect id="矩形" fill="#F5F5F5" x="0" y="50" width="80" height="3"></rect>
+        <path d="M0,85 L20,85 L20,87 L0,87 L0,85 Z M30,85 L50,85 L50,87 L30,87 L30,85 Z M60,85 L80,85 L80,87 L60,87 L60,85 Z" id="合并形状" fill="#F5F5F5"></path>
+        <path d="M289,85 L309,85 L309,87 L289,87 L289,85 Z M319,85 L339,85 L339,87 L319,87 L319,85 Z M349,85 L369,85 L369,87 L349,87 L349,85 Z" id="合并形状-copy" fill="#F5F5F5"></path>
+        <path d="M0,193 L20,193 L20,195 L0,195 L0,193 Z M30,193 L50,193 L50,195 L30,195 L30,193 Z M60,193 L80,193 L80,195 L60,195 L60,193 Z" id="合并形状-copy-4" fill="#F5F5F5"></path>
+        <path d="M289,193 L309,193 L309,195 L289,195 L289,193 Z M319,193 L339,193 L339,195 L319,195 L319,193 Z M349,193 L369,193 L369,195 L349,195 L349,193 Z" id="合并形状-copy-6" fill="#F5F5F5"></path>
+        <path d="M0,119 L20,119 L20,121 L0,121 L0,119 Z M30,119 L50,119 L50,121 L30,121 L30,119 Z M60,119 L80,119 L80,121 L60,121 L60,119 Z" id="合并形状" fill="#F5F5F5"></path>
+        <path d="M289,119 L309,119 L309,121 L289,121 L289,119 Z M319,119 L339,119 L339,121 L319,121 L319,119 Z M349,119 L369,119 L369,121 L349,121 L349,119 Z" id="合并形状-copy-7" fill="#F5F5F5"></path>
+        <path d="M0,226 L20,226 L20,228 L0,228 L0,226 Z M30,226 L50,226 L50,228 L30,228 L30,226 Z M60,226 L80,226 L80,228 L60,228 L60,226 Z" id="合并形状-copy-5" fill="#F5F5F5"></path>
+        <path d="M289,226 L309,226 L309,228 L289,228 L289,226 Z M319,226 L339,226 L339,228 L319,228 L319,226 Z M349,226 L369,226 L369,228 L349,228 L349,226 Z" id="合并形状-copy-8" fill="#F5F5F5"></path>
+        <path d="M0,153 L80,153 L80,156 L0,156 L0,153 Z M0,158 L80,158 L80,161 L0,161 L0,158 Z" id="合并形状" fill="#F8E71C"></path>
+        <path d="M289,153 L369,153 L369,156 L289,156 L289,153 Z M289,158 L369,158 L369,161 L289,161 L289,158 Z" id="合并形状-copy-9" fill="#F8E71C"></path>
+        <path d="M158,283 L212,283 L212,286 L158,286 L158,283 Z M158,288 L212,288 L212,291 L158,291 L158,288 Z" id="合并形状-copy-2" fill="#F8E71C" transform="translate(185.000000, 287.000000) rotate(90.000000) translate(-185.000000, -287.000000) "></path>
+        <path d="M159,22 L212,22 L212,25 L159,25 L159,22 Z M159,27 L212,27 L212,30 L159,30 L159,27 Z" id="合并形状-copy-3" fill="#F8E71C" transform="translate(185.500000, 26.000000) rotate(90.000000) translate(-185.500000, -26.000000) "></path>
+        <rect id="矩形-copy" fill="#F5F5F5" x="290" y="50" width="79" height="3"></rect>
+        <rect id="矩形-copy-12" fill="#F5F5F5" x="0" y="261" width="80" height="3"></rect>
+        <rect id="矩形-copy-15" fill="#F5F5F5" x="289" y="261" width="81" height="3"></rect>
+        <rect id="矩形-copy-10" fill="#F5F5F5" x="78" y="0" width="3" height="53"></rect>
+        <path d="M113,0 L115,0 L115,20 L113,20 L113,0 Z M113,33 L115,33 L115,53 L113,53 L113,33 Z" id="合并形状" fill="#F5F5F5"></path>
+        <path d="M221,0 L223,0 L223,20 L221,20 L221,0 Z M221,33 L223,33 L223,53 L221,53 L221,33 Z" id="合并形状-copy-11" fill="#F5F5F5"></path>
+        <path d="M147,0 L149,0 L149,20 L147,20 L147,0 Z M147,33 L149,33 L149,53 L147,53 L147,33 Z" id="合并形状-copy-10" fill="#F5F5F5"></path>
+        <path d="M255,0 L257,0 L257,20 L255,20 L255,0 Z M255,33 L257,33 L257,53 L255,53 L255,33 Z" id="合并形状-copy-12" fill="#F5F5F5"></path>
+        <path d="M113,260 L115,260 L115,280 L113,280 L113,260 Z M113,293 L115,293 L115,313 L113,313 L113,293 Z" id="合并形状-copy-16" fill="#F5F5F5"></path>
+        <path d="M221,260 L223,260 L223,280 L221,280 L221,260 Z M221,293 L223,293 L223,313 L221,313 L221,293 Z" id="合并形状-copy-15" fill="#F5F5F5"></path>
+        <path d="M147,260 L149,260 L149,280 L147,280 L147,260 Z M147,293 L149,293 L149,313 L147,313 L147,293 Z" id="合并形状-copy-14" fill="#F5F5F5"></path>
+        <path d="M255,260 L257,260 L257,280 L255,280 L255,260 Z M255,293 L257,293 L257,313 L255,313 L255,293 Z" id="合并形状-copy-13" fill="#F5F5F5"></path>
+        <rect id="矩形-copy-13" fill="#F5F5F5" x="289" y="0" width="3" height="53"></rect>
+        <rect id="矩形-copy-11" fill="#F5F5F5" x="78" y="261" width="3" height="53"></rect>
+        <rect id="矩形-copy-14" fill="#F5F5F5" x="289" y="261" width="3" height="53"></rect>
+    </g>
+</svg>

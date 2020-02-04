@@ -1,0 +1,262 @@
+html,
+body
+  height 100%
+  min-width 1180px
+  margin 0
+  padding 0
+ol,ul
+  list-style none
+h1, h2, h3, h4, h5, h6, p, ul
+  font-size 100%
+  padding 0
+  margin 0
+body,html,#app
+  height 100%
+#app
+  // overflow hidden
+.el-menu-item-group__title
+  padding 0
+  margin 0
+  // 表格内的按钮颜色
+.el-button--text, .el-button--text:hover
+  color: #ff6600
+.left
+  float left
+.right
+  float right
+.el-menu-item i, .el-submenu__title i
+  color #333
+  font-size 17px
+  margin-right 6px
+.steps
+  margin 0 auto
+  height 30px
+  text-align center
+  margin-top 30px
+  display flex
+  .line
+    width 300px
+    height 6px
+    background-color #E5E5E5
+    text-align center
+    margin-right 1px
+    float left
+    position relative
+    span
+      font-size 14px
+      position absolute
+      color #4D4D4D
+      top -25px
+      left 50%
+      transform translate(-55%, -50%)
+    .dot
+      margin 0 auto
+      width 18px
+      height 14px
+      position absolute
+      top 50%
+      left 50%
+      background-color #fff
+      transform translate(-50%, -50%)
+      z-index 2
+      i
+        width 14px
+        height 14px
+        display block
+        margin 0 auto
+        border-radius 50%
+        background-color #E5E5E5
+  .active
+    .line
+      background-color #FF6600
+      span
+        color #FF6600
+      .dot i
+        background-color #FF6600
+.el-fot
+  text-align center
+  margin-top 15px
+.tipMessage
+  color red
+.el-input__inner
+  height 32px !important
+  line-height 32px !important
+.login-wrap
+  .el-input__inner, .el-button
+    height 40px
+    line-height 40px
+.crossInfo
+  .infoInput
+    max-width 175px
+.el-radio__inner
+  display none !important
+.round
+  height 30px
+  text-align center
+  line-height 30px
+  margin-top 5px
+  i
+    width 16px
+    height 16px
+    position relative
+    top 3px
+    left -2px
+    display inline-block
+.crossInfo .is-checked+.el-radio__label, .controlInfo .is-checked+.el-radio__label
+  color #FF6600 !important
+.menu-isopen
+  width 100%
+  .el-radio-button__inner
+    border 0 none
+    background-color #E5E5E5 
+    i
+      font-size 18px
+.open
+  width 100%
+  .el-radio-button__inner
+    float right
+    background-color #E5E5E5
+    border-left 0 none !important
+.el-aside
+  background-color #E5E5E5
+.el-menu
+  background 0 none !important
+.el-menu--horizontal.el-menu--dark .el-submenu .el-menu-item.is-active, .el-menu-item.is-active
+  background #F5F5F5 !important
+.el-menu--horizontal.el-menu--dark .el-submenu .el-menu-item.is-active i.icon-item, .el-menu-item.is-active i.icon-item
+  background #F5F5F5 !important
+.el-submenu.is-active .el-submenu__title
+  i, span
+    color #409EFF !important
+.el-menu-item:focus, .el-menu-item:hover, .el-submenu__title:hover
+  background #F5F5F5 !important
+.el-menu-item-group
+  ul
+    background-color #D9D9D9 !important
+.el-header
+  line-height 60px
+  width 100%
+  position fixed
+  top 0
+  left 0
+  z-index 1000
+.main-layout
+  padding 0 30px
+  margin-bottom 30px
+.control-title
+  height 42px
+  line-height 42px
+  h5
+    color #4D4D4D
+    font-size 15px
+    text-indent 5px
+.el-menu-item, .el-submenu__title
+  height 52px
+  line-height 52px
+.console
+  .el-card__body
+    padding 10px 20px !important
+.no-default
+    .el-card__body
+      padding 0 !important
+.equip-right
+  .el-card__body
+    padding 0 !important
+.equip-right
+  .video
+    .el-tabs--bottom.el-tabs--border-card .el-tabs__header.is-bottom
+      border-bottom 1px solid #DCDFE6
+.table-title
+  margin-bottom 15px
+.el-container
+  padding-top 30px
+.el-tabs__nav-scroll div div
+  font-size 14px
+  color #000
+  // border-right 1px solid #DCDFE6 !important
+  border-bottom: 1px solid white;
+  &.is-active
+    font-weight 400
+    color #FF6600 !important
+.el-tabs__nav
+  width 100% !important
+  &>div
+    width 25% !important
+    text-align center
+.el-tabs--bottom.el-tabs--border-card .el-tabs__item.is-bottom
+  margin 0 !important
+.el-tabs--border-card>.el-tabs__header .el-tabs__item+.el-tabs__item, .el-tabs--border-card>.el-tabs__header .el-tabs__item:first-child
+  margin-left 0 !important
+  margin-bottom: 10px
+.occupancy
+  .el-tabs__nav
+    width 100% !important
+    &>div
+      width 25% !important
+      text-align center
+.el-tabs--border-card>.el-tabs__header .el-tabs__item:not(.is-disabled):hover
+  color #000
+.console-video
+  position relative
+  .el-tabs__nav
+    display flex
+    flex-wrap wrap
+.equipment
+  .el-tabs__item
+    padding 0
+    margin 0
+    text-align: center
+  .el-tabs--bottom .el-tabs--left>.el-tabs__header .el-tabs__item:nth-child(2), .el-tabs--bottom .el-tabs--right>.el-tabs__header .el-tabs__item:nth-child(2), .el-tabs--bottom.el-tabs--border-card>.el-tabs__header .el-tabs__item:nth-child(2), .el-tabs--bottom.el-tabs--card>.el-tabs__header .el-tabs__item:nth-child(2), .el-tabs--top .el-tabs--left>.el-tabs__header .el-tabs__item:nth-child(2), .el-tabs--top .el-tabs--right>.el-tabs__header .el-tabs__item:nth-child(2), .el-tabs--top.el-tabs--border-card>.el-tabs__header .el-tabs__item:nth-child(2), .el-tabs--top.el-tabs--card>.el-tabs__header .el-tabs__item:nth-child(2)
+    padding 0
+  .is-disabled
+    cursor not-allowed
+  .el-tabs--bottom .el-tabs--left>.el-tabs__header .el-tabs__item:last-child, .el-tabs--bottom .el-tabs--right>.el-tabs__header .el-tabs__item:last-child, .el-tabs--bottom.el-tabs--border-card>.el-tabs__header .el-tabs__item:last-child, .el-tabs--bottom.el-tabs--card>.el-tabs__header .el-tabs__item:last-child, .el-tabs--top .el-tabs--left>.el-tabs__header .el-tabs__item:last-child, .el-tabs--top .el-tabs--right>.el-tabs__header .el-tabs__item:last-child, .el-tabs--top.el-tabs--border-card>.el-tabs__header .el-tabs__item:last-child, .el-tabs--top.el-tabs--card>.el-tabs__header .el-tabs__item:last-child
+    padding 0
+    .is-disabled
+      cursor not-allowed
+.console-video
+  position relative
+  .el-tabs__nav
+    display flex
+    flex-wrap wrap
+    div.el-tabs__item:after
+      background: #CBCBCB;
+      content: '';
+      display: inline-block;
+      width: 1px;
+      height: 14px;
+      line-height: 14px;
+      float: right;
+      margin-top: 12px;  
+    &>div.el-tabs__item:nth-child(5):after, &>div.el-tabs__item:nth-child(9):after
+      background: white;
+    //   border-right 0 none !important
+      // margin 38px 0!important
+    &>div.el-tabs__item
+      border-top 0 none !important
+    &>div.el-tabs__item.is-active
+      border-top 0 none !important
+.vjs-workinghover
+  width 100% !important
+  height 100% !important
+  display inline-block
+.el-tabs--border-card>.el-tabs__header .el-tabs__item
+  -webkit-transition all .1s cubic-bezier(0.68, -0.55, 0.27, 1.55)
+  transition all .1s cubic-bezier(0.68, -0.55, 0.27, 1.55)
+.carwalks
+  .el-tabs__content
+    
+    padding 0 !important
+.cross-info
+  .el-select-dropdown__wrap .el-scrollbar__wrap
+    margin 0
+.equipment   
+  .el-tabs__content
+    overflow: initial !important
+    // min-height 40px
+.vjs-big-play-centered .vjs-big-play-button
+  border-radius 50%
+  border 0
+.video-js .vjs-big-play-button
+  width 1.5em
+  margin-left -0.75em

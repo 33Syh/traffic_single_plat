@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="110px" height="110px" viewBox="0 0 110 110" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.1 (72631) - https://sketchapp.com -->
+    <title>路口-Y字形</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M5.68434189e-14,4.21696913 C5.68434189e-14,2.00989236 1.79486856,0.220703125 3.996266,0.220703125 L106.003734,0.220703125 C108.210811,0.220703125 110,2.01557168 110,4.21696913 L110,106.224437 C110,108.431514 108.205131,110.220703 106.003734,110.220703 L3.996266,110.220703 C1.78918923,110.220703 5.68434189e-14,108.425835 5.68434189e-14,106.224437 L5.68434189e-14,4.21696913 Z" id="path-1"></path>
+        <rect id="path-3" x="81.8154942" y="-9.5556858" width="1" height="76"></rect>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="1" height="76" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+        <rect id="path-5" x="28.7236111" y="-8.5556858" width="1" height="76"></rect>
+        <mask id="mask-6" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="1" height="76" fill="white">
+            <use xlink:href="#path-5"></use>
+        </mask>
+        <rect id="path-7" x="55" y="55.2207031" width="1" height="53"></rect>
+        <mask id="mask-8" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="1" height="53" fill="white">
+            <use xlink:href="#path-7"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="02中控台-配置1-路口信息" transform="translate(-478.000000, -547.000000)">
+            <g id="路口-Y字形" transform="translate(478.000000, 546.779297)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <path d="M39.5,109.818494 L70.5,109.818494 L70.5,63.0807358 L124.195959,9.38477631 L102.275649,-12.5355339 L55.2198612,34.5202541 L6.26345597,-14.4361511 L-15.6568542,7.48415909 L39.5,62.6410133 L39.5,109.818494 Z" id="合并形状" stroke="#BFBFBF" fill="#999999" mask="url(#mask-2)"></path>
+                <g id="矩形-copy-6" stroke-dasharray="3,11" mask="url(#mask-2)" transform="translate(82.315494, 28.444314) rotate(45.000000) translate(-82.315494, -28.444314) " stroke="#E5E5E5" stroke-width="2">
+                    <use mask="url(#mask-4)" xlink:href="#path-3"></use>
+                </g>
+                <g id="矩形-copy-7" stroke-dasharray="3,11" mask="url(#mask-2)" transform="translate(29.223611, 29.444314) rotate(-45.000000) translate(-29.223611, -29.444314) " stroke="#E5E5E5" stroke-width="2">
+                    <use mask="url(#mask-6)" xlink:href="#path-5"></use>
+                </g>
+                <g id="矩形-copy-8" stroke-dasharray="3,10" mask="url(#mask-2)" stroke="#E5E5E5" stroke-width="2">
+                    <use mask="url(#mask-8)" xlink:href="#path-7"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
