@@ -169,7 +169,7 @@
                     src="@/assets/images/svg/system_config/download.png"
                     alt=""
                     srcset="" />
-                  <h2>在线更新</h2>
+                  <h2>最新版本</h2>
                 </div>
                 <div v-if="isUpToData" class="contain">
                   <div class="detail">
@@ -450,6 +450,7 @@ export default {
       if (res.code !== 200) {
         this.$message.error(res.msg)
       }
+      console.log(res.data)
       this.step = res.data.step
       this.percenStatus = res.data.status
       if (res.data.status === 1) {
@@ -492,11 +493,11 @@ export default {
         this.customColor = '#027AFF'
         this.customText = '更新中'
       }
-      if (resData.step === 7) {
-        this.customColor = '#52C41A'
-        this.customText = '更新完成'
-        this.updataPercen = 100
-      }
+      // if (resData.step === 7) {
+      //   this.customColor = '#52C41A'
+      //   this.customText = '更新完成'
+      //   this.updataPercen = 100
+      // }
       if (resData.step === 8) {
         this.customColor = '#52C41A'
         this.customText = '固件更新失败，回滚成功'
@@ -507,9 +508,7 @@ export default {
         this.customText = '回滚失败'
         this.updataPercen = 100
       }
-      if (resData.step >= 7 && resData.step <= 9) {
-        this.centerDialogVisible = false
-      }
+
       // if (resData.step >= 7) {
       //   // 当前页刷新
       //   this.pageIndex = 1
@@ -519,8 +518,12 @@ export default {
       //   // })
       // }
       if (resData.step === 7) {
-        this.$message.success(resData.msg)
+        this.$message.success(res.msg)
+        this.centerDialogVisible = false
         this.initVersion()
+      }
+      if (resData.step >= 7 && resData.step <= 9) {
+        this.centerDialogVisible = false
       }
       this.timePoll = setTimeout(() => {
         this.repeatCall()
