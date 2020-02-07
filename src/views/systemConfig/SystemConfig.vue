@@ -178,7 +178,7 @@
                       <i>最新版本：</i>{{ newList.version }}
                     </p>
                     <p><i>文件大小：</i>{{ newList.file_size }}</p>
-                    <p><i>版本日期：</i>{{ newList.ver_time }}</p>
+                    <p><i>发布日期：</i>{{ newList.ver_time }}</p>
                   </div>
                   <el-button class="btn_sty" @click="downUpdata()" size="small">下载并更新</el-button>
                 </div>
@@ -324,11 +324,12 @@ export default {
     }
   },
   created () {
-    // this.initNetwork()
+    this.initNetwork()
     localStorage.setItem('updataDia', false)
     // 处理升级地址
     if (process.env.NODE_ENV === 'production') {
-      this.upgradeAddress = 'http://' + `${customizingPort.upgrade}` + '/api'
+      this.upgradeAddress = 'http://0.0.0.0/' + `${customizingPort.upgrade}` + '/api'
+      // this.upgradeAddress = 'http://0.0.0.0/api'
       console.log('线上环境')
     } else if (process.env.NODE_ENV === 'development') {
       this.upgradeAddress = `${customizingPortIp.development}` + ':' + `${customizingPort.upgrade}` + '/api'
