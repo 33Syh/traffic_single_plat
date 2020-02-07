@@ -326,9 +326,10 @@ export default {
   created () {
     this.initNetwork()
     localStorage.setItem('updataDia', false)
+    console.log('http://0.0.0.0:' + `${customizingPort.upgrade}` + '/api')
     // 处理升级地址
     if (process.env.NODE_ENV === 'production') {
-      this.upgradeAddress = 'http://0.0.0.0/' + `${customizingPort.upgrade}` + '/api'
+      this.upgradeAddress = 'http://0.0.0.0:' + `${customizingPort.upgrade}` + '/api'
       // this.upgradeAddress = 'http://0.0.0.0/api'
       console.log('线上环境')
     } else if (process.env.NODE_ENV === 'development') {
