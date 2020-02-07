@@ -2,7 +2,7 @@
 export const customizingPortIp = {
   // development: 'http://192.168.245.78'
   development: 'http://39.97.236.188'
-  // development: ' http://192.168.199.194'
+  // development: ' http://47.92.118.237'
 }
 // 项目端口
 export const customizingPort = {
