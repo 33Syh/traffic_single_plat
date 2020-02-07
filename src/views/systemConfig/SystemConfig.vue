@@ -324,19 +324,23 @@ export default {
     }
   },
   created () {
+    // var hostAndPort = document.location.host
+    // var hostAddress = hostAndPort.substr(0, hostAndPort.length - 4)
+    // console.log('http://' + hostAddress + `${customizingPort.upgrade}` + '/api/')
     this.initNetwork()
     localStorage.setItem('updataDia', false)
-    this.upgradeAddress = `${customizingPortIp.development}` + ':' + `${customizingPort.upgrade}` + '/api'
-    console.log('开发环境' + this.upgradeAddress)
+    // this.upgradeAddress = `${customizingPortIp.development}` + ':' + `${customizingPort.upgrade}` + '/api'
+    // console.log('开发环境' + this.upgradeAddress)
     // 处理升级地址
-    // if (process.env.NODE_ENV === 'production') {
-    //   this.upgradeAddress = 'http://0.0.0.0:' + `${customizingPort.upgrade}` + '/api'
-    //   // this.upgradeAddress = 'http://0.0.0.0/api'
-    //   console.log('线上环境')
-    // } else if (process.env.NODE_ENV === 'development') {
-    //   this.upgradeAddress = `${customizingPortIp.development}` + ':' + `${customizingPort.upgrade}` + '/api'
-    //   console.log('开发环境' + this.upgradeAddress)
-    // }
+    if (process.env.NODE_ENV === 'production') {
+      var hostAndPort = document.location.host
+      var hostAddress = hostAndPort.substr(0, hostAndPort.length - 4)
+      this.upgradeAddress = 'http://' + hostAddress + `${customizingPort.upgrade}` + '/api'
+      console.log('线上环境' + this.upgradeAddress)
+    } else if (process.env.NODE_ENV === 'development') {
+      this.upgradeAddress = `${customizingPortIp.development}` + ':' + `${customizingPort.upgrade}` + '/api'
+      console.log('开发环境' + this.upgradeAddress)
+    }
   },
   watch: {
     centerDialogVisible: function (newVal) {
