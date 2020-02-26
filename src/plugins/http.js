@@ -74,6 +74,7 @@ MyHttpServer.install = Vue => {
   } else if (process.env.NODE_ENV === 'development') {
     axios.defaults.baseURL = `${customizingPortIp.development}` + ':' + `${customizingPort.normal}` + '/api/'
   }
+  // axios.defaults.baseURL = `${customizingPortIp.development}` + ':' + `${customizingPort.normal}` + '/api/'
   axios.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded'
   // 允许在向服务器发送前，修改请求数据
   axios.defaults.transformRequest = [

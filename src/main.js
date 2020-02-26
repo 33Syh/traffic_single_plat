@@ -45,6 +45,7 @@ if (process.env.NODE_ENV === 'production') {
   str = '/get_redis_mapinfo/'
 } else if (process.env.NODE_ENV === 'development') {
   str = `${customizingPortIp.development}` + ':' + `${customizingPort.normal}` + `/get_redis_mapinfo`
+  console.log(str)
 }
 Vue.use(
   new VueSocketIO({

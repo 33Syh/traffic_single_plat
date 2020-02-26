@@ -3,7 +3,7 @@
     <div class="system_header">
       <em class="table-title">
         系统配置
-        <span class="right f_normal">更新时间：{{ update_at }}</span>
+        <span v-if="pageIndex === 1" class="right f_normal">更新时间：{{ update_at }}</span>
       </em>
     </div>
     <div class="system_contain">
@@ -326,11 +326,11 @@ export default {
   created () {
     // var hostAndPort = document.location.host
     // var hostAddress = hostAndPort.substr(0, hostAndPort.length - 4)
-    // console.log('http://' + hostAddress + `${customizingPort.upgrade}` + '/api/')
+    // console.log('http://' + hostAddress + `${customizingPort.upgrade}` + '/api/')length - 4)
     this.initNetwork()
     localStorage.setItem('updataDia', false)
-    // this.upgradeAddress = `${customizingPortIp.development}` + ':' + `${customizingPort.upgrade}` + '/api'
-    // console.log('开发环境' + this.upgradeAddress)
+    this.upgradeAddress = `${customizingPortIp.development}` + ':' + `${customizingPort.upgrade}` + '/api'
+    console.log('开发环境' + this.upgradeAddress)
     // 处理升级地址
     if (process.env.NODE_ENV === 'production') {
       var hostAndPort = document.location.host
@@ -384,6 +384,7 @@ export default {
     async initNetwork () {
       let res = await this.$http.get('/crossroadinfo/')
       if (res.code !== 200) return
+      console.log(this.datas)
       this.datas = res.data.road_base_info
       this.update_at = this.datas.update_at
       this.siteDate.road_ip = this.datas.road_ip
