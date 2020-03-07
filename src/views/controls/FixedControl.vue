@@ -669,6 +669,9 @@ export default {
         v.status === 1 ? (v.status = '使用中') : (v.status = '未使用')
       })
       if (code === 200) {
+        data.fixedplan_list.filter((data) => {
+          data.plan_num = '方案' + data.plan_num
+        })
         this.fixedplan_list = data.fixedplan_list
         this.$cookies.set('row', '')
         this.$cookies.set('index', '')

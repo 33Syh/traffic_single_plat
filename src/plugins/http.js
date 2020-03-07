@@ -17,7 +17,6 @@ MyHttpServer.install = Vue => {
           axios.defaults.baseURL = '/api/'
         } else if (process.env.NODE_ENV === 'development') {
           axios.defaults.baseURL = `${customizingPortIp.development}` + ':' + `${customizingPort.upgrade}` + '/api/'
-          console.log(axios.defaults.baseURL)
         }
       }
       // console.log(axios.defaults.baseURL)
@@ -57,6 +56,10 @@ MyHttpServer.install = Vue => {
         if (data.code === 4008) {
           this.$cookies.remove('token')
           window.location.href = '/login'
+        } else if (data.code === 4000) {
+          console.log(22222)
+          window.location.href = '/activate'
+          // this.$router.push({'name': 'activate'})
         }
         Message.error(data.msg)
       }

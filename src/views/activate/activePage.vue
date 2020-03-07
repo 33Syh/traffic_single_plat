@@ -6,7 +6,7 @@
         <el-card class="box-card">
           <el-row justify="center" align="middle">
               <el-col style="width: 720px" type="flex" justify="center" align="middle">
-                  <div v-if="flag" class="content">
+                  <div v-if="flag===1" class="content">
                     <img src="@/assets/images/success.png" alt="">
                     <h3>激活成功</h3>
                     <p>请点击下面按钮直接进入系统<span style="color: #FF7416">登陆页面</span></p>

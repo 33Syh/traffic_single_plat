@@ -96,6 +96,7 @@ export default {
   },
   methods: {
     async handleLogin (formName) {
+      if (window.localStorage.getItem('isBan') === '3') return this.$message.error('设备已被禁用,请联系中心管理员授予权限!')
       this.$refs[formName].validate(valid => {
         if (valid) {
         } else {
@@ -107,6 +108,7 @@ export default {
         // this.firstLogin ? this.$router.push({'name': 'crossinfo'}) : this.$router.push({'name': 'consoles'})
         const { code } = res
         if (code === 200) {
+          localStorage.removeItem('isBan')
           const singleToken = res.data.token
           this.$cookies.set('singleToken', singleToken)
           this.$cookies.set('is_set', res.data.is_set)
@@ -118,15 +120,16 @@ export default {
         }
       }
     }
+  },
+  created () {
+    // if (process.env.NODE_ENV === 'production') {
+    //   console.log('production')
+    // } else if (process.env.NODE_ENV === 'development') {
+    //   console.log(this.$http.defaults.baseURL)
+    //   console.log('development')
+    // }
+    console.log(this.$route.params)
   }
-  // created () {
-  //   if (process.env.NODE_ENV === 'production') {
-  //     console.log('production')
-  //   } else if (process.env.NODE_ENV === 'development') {
-  //     console.log(this.$http.defaults.baseURL)
-  //     console.log('development')
-  //   }
-  // }
 }
 </script>
 <style lang="stylus" scoped>

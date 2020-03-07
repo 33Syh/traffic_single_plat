@@ -152,18 +152,18 @@ export default {
       })
       if (tempData === 1) {
       }
-      console.log('要进入页面跳转')
       this.$http.post('activate/', {
         ...this.equipActionList
       }).then((res) => {
-        console.log(res)
-        if (res.data.status === 1) {
+        if (res.code === 200) {
+          // if (res.data.status === 1) {
           window.localStorage.setItem('flag', '1')
           this.$router.push({name: 'activepage', params: {flag: true}})
         } else {
           window.localStorage.setItem('flag', '0')
           this.$router.push({name: 'activepage', params: {flag: false}})
         }
+        // }
       })
     }
   },

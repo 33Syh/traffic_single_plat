@@ -33,10 +33,10 @@
                 <span>
                   {{
                     crossInfo.control_model === 1
-                      ? "自主控制"
+                      ? '自主控制'
                       : crossInfo.control_model === 2
-                      ? "中心控制"
-                      : ""
+                      ? '中心控制'
+                      : ''
                   }}
                 </span>
               </li>
@@ -45,14 +45,14 @@
                 <span>
                   {{
                     crossInfo.control_type === 1
-                      ? "策略控制"
+                      ? '策略控制'
                       : crossInfo.control_type === 2
-                      ? "时间表控制"
+                      ? '时间表控制'
                       : crossInfo.control_type === 3
-                      ? "固定时间控制"
-                      : crossInfo.control_type === 4
-                      ? "绿波协调控制"
-                      : ""
+                      ? '固定时间控制'
+                      : crossInfo.control_model === 2
+                      ? '绿波协调控制'
+                      : ''
                   }}
                   <!-- {{ crossInfo ? crossInfo.control_type : ''}} -->
                 </span>
@@ -68,7 +68,18 @@
               </li>
             </ul>
           </div>
-          <div class="turn-type" @click="changeType">修改控制类型</div>
+          <!-- 等于2的时候是中心控制 -->
+          <div
+            class="turn-type"
+            @click="
+              changeType(
+                crossInfo.control_model === 2 ? 1 : 0,
+                crossInfo.plan_info,
+              )
+            "
+          >
+            修改控制类型
+          </div>
         </el-card>
       </el-col>
       <el-col :span="8" class="control_pop" style="min-height: 160px;">
@@ -105,7 +116,7 @@
                 <div class="f_left">
                   <h5>设备状态:</h5>
                   <span>
-                    {{ socketData.equip_status === 1 ? "运行中" : "故障 " }}
+                    {{ socketData.equip_status === 1 ? '运行中' : '故障 ' }}
                     <i
                       :class="
                         socketData.equip_status === 1
@@ -120,7 +131,7 @@
                 <div class="f_center">
                   <h5>信号控制器:</h5>
                   <span>
-                    {{ socketData.control_status === "00" ? "正常" : "故障 " }}
+                    {{ socketData.control_status === '00' ? '正常' : '故障 ' }}
                     <i
                       :class="
                         socketData.control_status === '00'
@@ -135,7 +146,7 @@
                 <div class="f_right">
                   <h5>信号灯:</h5>
                   <span>
-                    {{ socketData.light_status === 1 ? "正常" : "故障 " }}
+                    {{ socketData.light_status === 1 ? '正常' : '故障 ' }}
                     <i
                       :class="
                         socketData.light_status === 1
@@ -163,17 +174,17 @@
                         <div class="phase">
                           <span title="北左">{{
                             phaseTraffic.length === 0
-                              ? ""
+                              ? ''
                               : phaseTraffic[2].phase_num
                           }}</span>
                           <span title="北直">{{
                             phaseTraffic.length === 0
-                              ? ""
+                              ? ''
                               : phaseTraffic[1].phase_num
                           }}</span>
                           <span title="北右">{{
                             phaseTraffic.length === 0
-                              ? ""
+                              ? ''
                               : phaseTraffic[0].phase_num
                           }}</span>
                         </div>
@@ -251,7 +262,7 @@
                             style="left: 154px;top: 41px;width: 30px;"
                             >{{
                               phaseTraffic.length === 0
-                                ? ""
+                                ? ''
                                 : phaseTraffic[12].phase_num
                             }}</span
                           >
@@ -287,17 +298,17 @@
                         <div class="phase" style="top:-10px">
                           <span title="西右">{{
                             phaseTraffic.length === 0
-                              ? ""
+                              ? ''
                               : phaseTraffic[5].phase_num
                           }}</span>
                           <span title="西直">{{
                             phaseTraffic.length === 0
-                              ? ""
+                              ? ''
                               : phaseTraffic[4].phase_num
                           }}</span>
                           <span title="西左">{{
                             phaseTraffic.length === 0
-                              ? ""
+                              ? ''
                               : phaseTraffic[3].phase_num
                           }}</span>
                         </div>
@@ -379,7 +390,7 @@
                             style="top: 39px;left: 144px;width: 30px;"
                             >{{
                               phaseTraffic.length === 0
-                                ? ""
+                                ? ''
                                 : phaseTraffic[13].phase_num
                             }}</span
                           >
@@ -415,17 +426,17 @@
                         <div class="phase">
                           <span title="南右">{{
                             phaseTraffic.length === 0
-                              ? ""
+                              ? ''
                               : phaseTraffic[8].phase_num
                           }}</span>
                           <span title="南直">{{
                             phaseTraffic.length === 0
-                              ? ""
+                              ? ''
                               : phaseTraffic[7].phase_num
                           }}</span>
                           <span title="南左">{{
                             phaseTraffic.length === 0
-                              ? ""
+                              ? ''
                               : phaseTraffic[6].phase_num
                           }}</span>
                         </div>
@@ -503,7 +514,7 @@
                             style="top: 40px;left: 152px;width: 30px;"
                             >{{
                               phaseTraffic.length === 0
-                                ? ""
+                                ? ''
                                 : phaseTraffic[14].phase_num
                             }}</span
                           >
@@ -539,17 +550,17 @@
                         <div style="top:-11px;" class="phase">
                           <span title="东右">{{
                             phaseTraffic.length === 0
-                              ? ""
+                              ? ''
                               : phaseTraffic[11].phase_num
                           }}</span>
                           <span title="东直">{{
                             phaseTraffic.length === 0
-                              ? ""
+                              ? ''
                               : phaseTraffic[10].phase_num
                           }}</span>
                           <span title="东左">{{
                             phaseTraffic.length === 0
-                              ? ""
+                              ? ''
                               : phaseTraffic[9].phase_num
                           }}</span>
                         </div>
@@ -627,7 +638,7 @@
                             style="top: 40px;width: 30px;left: 149px;"
                             >{{
                               phaseTraffic.length === 0
-                                ? ""
+                                ? ''
                                 : phaseTraffic[15].phase_num
                             }}</span
                           >
@@ -665,8 +676,8 @@
                             countDown >= 10
                               ? countDown
                               : 1 > countDown
-                              ? "00"
-                              : "0" + countDown
+                              ? '00'
+                              : '0' + countDown
                           }}
                         </p>
                       </div>
@@ -729,7 +740,7 @@
                   <span style="color: red">{{
                     socketData.roll_part_info.length > 0
                       ? socketData.roll_part_info[0].plan_name
-                      : ""
+                      : ''
                   }}</span>
                 </h1>
                 <!-- {{socketData.roll_part_info[0].part_info}} -->
@@ -745,7 +756,7 @@
                           class="green"
                           :style="{
                             width:
-                              (item.part_info.green_time * 100) / timeNum + '%'
+                              (item.part_info.green_time * 100) / timeNum + '%',
                           }"
                           v-if="item.part_info.green_time > 0"
                           >{{ item.part_info.green_time }}s</span
@@ -754,7 +765,8 @@
                           class="yellow"
                           :style="{
                             width:
-                              (item.part_info.yellow_time * 100) / timeNum + '%'
+                              (item.part_info.yellow_time * 100) / timeNum +
+                              '%',
                           }"
                           v-if="item.part_info.yellow_time > 0"
                           >{{ item.part_info.yellow_time }}s</span
@@ -763,7 +775,7 @@
                           class="red"
                           :style="{
                             width:
-                              (item.part_info.red_time * 100) / timeNum + '%'
+                              (item.part_info.red_time * 100) / timeNum + '%',
                           }"
                           v-if="item.part_info.red_time > 0"
                           >{{ item.part_info.red_time }}s</span
@@ -783,10 +795,13 @@
                       :key="i"
                       class="part_img"
                       :class="{
-                        active: socketData.map_info.part_info.part_num - 1 === i
+                        active:
+                          socketData.map_info.part_info.part_num - 1 === i,
                       }"
                     >
-                      <div class="center_num">{{item.part_info.part_num}}</div>
+                      <div class="center_num">
+                        {{ item.part_info.part_num }}
+                      </div>
                       <div class="part_n">
                         <div class="map_phase_img">
                           <span class="phase_img_r">
@@ -1020,22 +1035,57 @@
               >
                 <li>
                   <span>控制类型:</span>
-
-                  <span>{{
-                    crossInfo.control_model === 1
-                      ? "自主控制"
-                      : crossInfo.control_model === 2
-                      ? "中心控制"
-                      : ""
-                  }}</span>
+                  <el-tooltip
+                    class="item"
+                    effect="dark"
+                    :content="
+                      crossInfo.control_type === 1
+                        ? '策略控制'
+                        : crossInfo.control_type === 2
+                        ? '时间表控制'
+                        : crossInfo.control_type === 3
+                        ? '固定时间控制'
+                        : crossInfo.control_model === 2
+                        ? '绿波协调控制'
+                        : ''
+                    "
+                    placement="top-start"
+                  >
+                    <span>{{
+                      crossInfo.control_type === 1
+                        ? '策略控制'
+                        : crossInfo.control_type === 2
+                        ? '时间表控制'
+                        : crossInfo.control_type === 3
+                        ? '固定时间控制'
+                        : crossInfo.control_model === 2
+                        ? '绿波协调控制'
+                        : ''
+                    }}</span>
+                  </el-tooltip>
                 </li>
                 <li>
                   <span>方案编号:</span>
                   <span>{{ this.deviceDetails.plan_id }}</span>
                 </li>
-                <li>
+                <li style="">
                   <span>方案名称:</span>
-                  <span>{{ socketData.roll_part_info.length>0?socketData.roll_part_info[0].plan_name:'' }}</span>
+                  <el-tooltip
+                    class="item"
+                    effect="dark"
+                    :content="
+                      socketData.roll_part_info.length > 0
+                        ? socketData.roll_part_info[0].plan_name
+                        : ''
+                    "
+                    placement="top-start"
+                  >
+                    <span>{{
+                      socketData.roll_part_info.length > 0
+                        ? socketData.roll_part_info[0].plan_name
+                        : ''
+                    }}</span>
+                  </el-tooltip>
                 </li>
                 <li>
                   <span>周期总时长:</span>
@@ -1047,7 +1097,9 @@
                 </li>
                 <li>
                   <span>当前阶段号:</span>
-                  <span>{{ this.deviceDetails.part_num }}</span>
+                  <span style="color:rgba(64,158,255,1)">{{
+                    this.deviceDetails.part_num
+                  }}</span>
                 </li>
                 <li>
                   <span>阶段总时长:</span>
@@ -1055,7 +1107,12 @@
                 </li>
                 <li>
                   <span>阶段运行时长:</span>
-                  <span>{{ this.deviceDetails.run_time }}秒</span>
+                  <span>
+                    <i style="color:rgba(64,158,255,1);font-style:normal">{{
+                      this.deviceDetails.run_time
+                    }}</i
+                    >秒</span
+                  >
                 </li>
               </ul>
             </div>
@@ -1101,7 +1158,7 @@
         </el-col>
         <el-col :span="8">
           <el-card shadow="always" class="equip-right">
-            <div  class="video console-video">
+            <div class="video console-video">
               <el-tabs tab-position="bottom" @tab-click="changeVideo">
                 <div class="videos">
                   <!-- <videoPlayer class="video-player vjs-custom-skin video-js vjs-big-play-centered vjs-fluid" controls preload="auto" :options="playerOptions"></videoPlayer> -->
@@ -1113,17 +1170,16 @@
                     :options="playerOptions"
                   ></video-player>
                 </div>
-                <template class='video_sty'>
-                  <el-tab-pane
-                    class="car_icon"
-                    style="height:252px"
-                  >
+                <template class="video_sty">
+                  <el-tab-pane class="car_icon" style="height:252px">
                     <span slot="label">
-                      <img style="margin-right:20%"  src="@/assets/images/car_icon.png" >
+                      <img
+                        style="margin-right:20%"
+                        src="@/assets/images/car_icon.png"
+                      />
                       <i style="font-style:normal">北视频</i>
                     </span>
-                   </el-tab-pane
-                  >
+                  </el-tab-pane>
                   <el-tab-pane
                     label="西视频"
                     style="height:252px"
@@ -1140,12 +1196,12 @@
                     class="disabled"
                   ></el-tab-pane>
                   <!-- 人行 -->
-                  <el-tab-pane
-                    class="car_icon"
-                    style="height:252px"
-                  >
-                 <span slot="label">
-                      <img style="margin-right:20%"  src="@/assets/images/people_icon.png" >
+                  <el-tab-pane class="car_icon" style="height:252px">
+                    <span slot="label">
+                      <img
+                        style="margin-right:20%"
+                        src="@/assets/images/people_icon.png"
+                      />
                       <i style="font-style:normal">北视频</i>
                     </span>
                   </el-tab-pane>
@@ -1175,12 +1231,12 @@
                       >{{ v.lane_info.lane_name }}({{ v.lane_info.direct }})
                       :</span
                     >
-                    {{ !v.lane_calculate ? "" : v.lane_calculate.flow_avg }}
+                    {{ !v.lane_calculate ? '' : v.lane_calculate.flow_avg }}
                     辆/分
                   </div>
                   <p>
                     <span class="data_style">总车道流量:</span>
-                    {{ sumInfo.flow_avg_sum >= 0 ? sumInfo.flow_avg_sum : "" }}
+                    {{ sumInfo.flow_avg_sum >= 0 ? sumInfo.flow_avg_sum : '' }}
                     辆/分
                   </p>
                 </el-tab-pane>
@@ -1191,19 +1247,19 @@
                       :</span
                     >
                     大型:&nbsp;{{
-                      !v.lane_calculate ? "" : v.lane_calculate.car_type.big
+                      !v.lane_calculate ? '' : v.lane_calculate.car_type.big
                     }}辆 &nbsp;&nbsp; 小型:&nbsp;{{
-                      !v.lane_calculate ? "" : v.lane_calculate.car_type.small
+                      !v.lane_calculate ? '' : v.lane_calculate.car_type.small
                     }}辆
                   </div>
 
                   <p>
                     <span class="data_style">车辆类型统计:</span>
                     大型:
-                    {{ sumInfo.car_type_sum ? sumInfo.car_type_sum.big : "" }}辆
+                    {{ sumInfo.car_type_sum ? sumInfo.car_type_sum.big : '' }}辆
                     &nbsp;&nbsp;&nbsp;&nbsp; 小型:
                     {{
-                      sumInfo.car_type_sum ? sumInfo.car_type_sum.small : ""
+                      sumInfo.car_type_sum ? sumInfo.car_type_sum.small : ''
                     }}辆
                   </p>
                 </el-tab-pane>
@@ -1213,12 +1269,12 @@
                       >{{ v.lane_info.lane_name }}({{ v.lane_info.direct }})
                       :</span
                     >
-                    {{ !v.lane_calculate ? "" : v.lane_calculate.head_time }} s
+                    {{ !v.lane_calculate ? '' : v.lane_calculate.head_time }} s
                   </div>
                   <p>
                     <span class="data_style">平均车头时距:</span>
                     {{
-                      sumInfo.head_time_avg >= 0 ? sumInfo.head_time_avg : ""
+                      sumInfo.head_time_avg >= 0 ? sumInfo.head_time_avg : ''
                     }}
                     s
                   </p>
@@ -1229,12 +1285,12 @@
                       >{{ v.lane_info.lane_name }}({{ v.lane_info.direct }})
                       :</span
                     >
-                    {{ !v.lane_calculate ? "" : v.lane_calculate.head_space }} m
+                    {{ !v.lane_calculate ? '' : v.lane_calculate.head_space }} m
                   </div>
                   <p>
                     <span class="data_style">平均车头间距:</span>
                     {{
-                      sumInfo.head_space_avg >= 0 ? sumInfo.head_space_avg : ""
+                      sumInfo.head_space_avg >= 0 ? sumInfo.head_space_avg : ''
                     }}
                     m
                   </p>
@@ -1245,15 +1301,15 @@
                       >{{ v.lane_info.lane_name }}({{ v.lane_info.direct }})
                       :</span
                     >
-                    {{ !v.lane_calculate ? "" : v.lane_calculate.speed_avg }}
+                    {{ !v.lane_calculate ? '' : v.lane_calculate.speed_avg }}
                     km/h
                   </div>
                   <p>
                     <span class="data_style">总车道平均速度:</span>
                     {{
                       !sumInfo.speed_avg_sum
-                        ? ""
-                        : sumInfo.speed_avg_sum + "km/h"
+                        ? ''
+                        : sumInfo.speed_avg_sum + 'km/h'
                     }}
                   </p>
                 </el-tab-pane>
@@ -1264,7 +1320,7 @@
                       :</span
                     >
                     {{
-                      !v.lane_calculate ? "" : v.lane_calculate.queeze_length
+                      !v.lane_calculate ? '' : v.lane_calculate.queeze_length
                     }}
                     辆
                   </div>
@@ -1273,7 +1329,7 @@
                     {{
                       sumInfo.queeze_length_avg >= 0
                         ? sumInfo.queeze_length_avg
-                        : ""
+                        : ''
                     }}
                     辆
                   </p>
@@ -1284,12 +1340,12 @@
                       >{{ v.lane_info.lane_name }}({{ v.lane_info.direct }})
                       :</span
                     >
-                    {{ !v.lane_calculate ? "" : v.lane_calculate.space_rate }} %
+                    {{ !v.lane_calculate ? '' : v.lane_calculate.space_rate }} %
                   </div>
                   <p>
                     <span class="data_style">总空间占有率:</span>
                     {{
-                      sumInfo.space_rate_avg >= 0 ? sumInfo.space_rate_avg : ""
+                      sumInfo.space_rate_avg >= 0 ? sumInfo.space_rate_avg : ''
                     }}
                     %
                   </p>
@@ -1300,12 +1356,12 @@
                       >{{ v.lane_info.lane_name }}({{ v.lane_info.direct }})
                       :</span
                     >
-                    {{ !v.lane_calculate ? "" : v.lane_calculate.time_rate }} %
+                    {{ !v.lane_calculate ? '' : v.lane_calculate.time_rate }} %
                   </div>
                   <p>
                     <span class="data_style">总时间占有率:</span>
                     {{
-                      sumInfo.time_rate_avg >= 0 ? sumInfo.time_rate_avg : ""
+                      sumInfo.time_rate_avg >= 0 ? sumInfo.time_rate_avg : ''
                     }}
                     %
                   </p>
@@ -1320,10 +1376,10 @@
                   <div class="car_info" v-for="(v, i) in person_list" :key="i">
                     <span class="data_style">区域总人数 :</span>
                     {{
-                      !v.walk_calculate ? "" : v.walk_calculate.person_exist
+                      !v.walk_calculate ? '' : v.walk_calculate.person_exist
                     }}人
                   </div>
-                   <div class="car_info" v-if="person_list.length===0">
+                  <div class="car_info" v-if="person_list.length === 0">
                     <span class="data_style">区域总人数 :</span>
                     0人
                   </div>
@@ -1332,10 +1388,10 @@
                   <div class="car_info" v-for="(v, i) in person_list" :key="i">
                     <span class="data_style">路口人流量 :</span>
                     {{
-                      !v.walk_calculate ? "" : v.walk_calculate.person_volume
+                      !v.walk_calculate ? '' : v.walk_calculate.person_volume
                     }}人/分
                   </div>
-                  <div class="car_info" v-if="person_list.length===0">
+                  <div class="car_info" v-if="person_list.length === 0">
                     <span class="data_style">路口人流量 :</span>
                     0人/分
                   </div>
@@ -1365,14 +1421,13 @@
             <el-form-item label="控制模式:">
               <span>{{
                 formdata.control_model === 1
-                  ? "自主控制"
+                  ? '自主控制'
                   : formdata.control_model === 2
-                  ? "中心控制"
-                  : ""
+                  ? '中心控制'
+                  : ''
               }}</span>
             </el-form-item>
             <el-form-item label="控制类型:">
-
               <el-radio-group
                 v-if="formdata.control_model === 1"
                 v-model="formdata.control_type"
@@ -1399,6 +1454,9 @@
               </el-radio-group>
               <span v-else>绿波协调控制</span>
             </el-form-item>
+            {{ crossInfo.plan_info.id }}
+            ----
+            {{ formdata.plan_id }}
             <el-form-item label="控制方案:" style="height:32px" prop="plan_id">
               <el-select v-model="formdata.plan_id" placeholder="请选择方案">
                 <el-option
@@ -1585,7 +1643,7 @@ export default {
             this.crossInfo.plan_info.plan_name = this.socketData.roll_part_info[0].plan_name
           }
           if (this.socketData.roll_part_info.length > 0) {
-            this.socketData.roll_part_info.map(v => {
+            this.socketData.roll_part_info.map((v) => {
               this.timeNum =
                 this.timeNum -
                 0 +
@@ -1626,68 +1684,68 @@ export default {
                         ? require('../assets/images/Camera/eastUnrelatedCamera.png')
                         : require('../assets/images/Camera/eastFaultCamera.png')
                   /* eslint-disable */
-                  break;
+                  break
                 case 2:
                   cameraPath =
                     statusIconParam === 1
-                      ? require("../assets/images/Camera/westCamera.png")
+                      ? require('../assets/images/Camera/westCamera.png')
                       : statusIconParam === 4
-                      ? require("../assets/images/Camera/westUnrelatedCamera.png")
-                      : require("../assets/images/Camera/westFaultCamera.png");
+                      ? require('../assets/images/Camera/westUnrelatedCamera.png')
+                      : require('../assets/images/Camera/westFaultCamera.png')
                   /* eslint-disable */
-                  break;
+                  break
                 case 3:
                   cameraPath =
                     statusIconParam === 1
-                      ? require("../assets/images/Camera/southCamera.png")
+                      ? require('../assets/images/Camera/southCamera.png')
                       : statusIconParam === 4
-                      ? require("../assets/images/Camera/southUnrelatedCamera.png")
-                      : require("../assets/images/Camera/southFaultCamera.png");
+                      ? require('../assets/images/Camera/southUnrelatedCamera.png')
+                      : require('../assets/images/Camera/southFaultCamera.png')
                   /* eslint-disable */
-                  break;
+                  break
                 case 4:
                   cameraPath =
                     statusIconParam === 1
-                      ? require("../assets/images/Camera/northCamera.png")
+                      ? require('../assets/images/Camera/northCamera.png')
                       : statusIconParam === 4
-                      ? require("../assets/images/Camera/northUnrelatedCamera.png")
-                      : require("../assets/images/Camera/northFaultCamera.png");
+                      ? require('../assets/images/Camera/northUnrelatedCamera.png')
+                      : require('../assets/images/Camera/northFaultCamera.png')
                   /* eslint-disable */
-                  break;
+                  break
                 default:
-                  break;
+                  break
               }
-              return cameraPath;
-            };
-            data.camera_status.map(v => {
+              return cameraPath
+            }
+            data.camera_status.map((v) => {
               if (v.direct_type === 1) {
                 // alert(v.status)
-                this.videoDetails.eastEntrance = status(v.status);
+                this.videoDetails.eastEntrance = status(v.status)
                 // alert(this.videoDetails.eastEntrance)
-                this.videoDetails.eastEntranceIcon = statusIcon(v.status);
+                this.videoDetails.eastEntranceIcon = statusIcon(v.status)
                 // alert(this.videoDetails.eastEntranceIcon)
-                let tempVStatus = cameraPath(v.status, v.direct_type);
-                this.camera.eastCamera = tempVStatus;
+                let tempVStatus = cameraPath(v.status, v.direct_type)
+                this.camera.eastCamera = tempVStatus
               } else if (v.direct_type === 2) {
-                this.videoDetails.westEntrance = status(v.status);
-                this.videoDetails.westEntranceIcon = statusIcon(v.status);
-                this.camera.westCamera = cameraPath(v.status, v.direct_type);
+                this.videoDetails.westEntrance = status(v.status)
+                this.videoDetails.westEntranceIcon = statusIcon(v.status)
+                this.camera.westCamera = cameraPath(v.status, v.direct_type)
               } else if (v.direct_type === 3) {
-                this.videoDetails.southEntrance = status(v.status);
-                this.videoDetails.southEntranceIcon = statusIcon(v.status);
-                this.camera.southCamera = cameraPath(v.status, v.direct_type);
+                this.videoDetails.southEntrance = status(v.status)
+                this.videoDetails.southEntranceIcon = statusIcon(v.status)
+                this.camera.southCamera = cameraPath(v.status, v.direct_type)
               } else if (v.direct_type === 4) {
-                this.videoDetails.northEntrance = status(v.status);
-                this.videoDetails.northEntranceIcon = statusIcon(v.status);
-                this.camera.northCamera = cameraPath(v.status, v.direct_type);
+                this.videoDetails.northEntrance = status(v.status)
+                this.videoDetails.northEntranceIcon = statusIcon(v.status)
+                this.camera.northCamera = cameraPath(v.status, v.direct_type)
               }
-            });
+            })
           }
           // 进度条
-          if (data.equip_status === "11") {
-            let greenTime = data.map_info.part_info.green_time;
-            let yellowTime = data.map_info.part_info.yellow_time;
-            let redTime = data.map_info.part_info.red_time;
+          if (data.equip_status === '11') {
+            let greenTime = data.map_info.part_info.green_time
+            let yellowTime = data.map_info.part_info.yellow_time
+            let redTime = data.map_info.part_info.red_time
             this.countDown =
               greenTime > 0 || yellowTime > 0 || redTime > 0
                 ? greenTime === null
@@ -1695,144 +1753,136 @@ export default {
                     ? redTime - 0
                     : yellowTime - 0
                   : greenTime - 0
-                : "";
+                : ''
             this.timeColor =
-              greenTime > 0 ? "green" : yellowTime > 0 ? "yellow" : "red";
-            this.socketProgress();
-            this.start = "停止运行";
-            this.isShowMask = "none";
+              greenTime > 0 ? 'green' : yellowTime > 0 ? 'yellow' : 'red'
+            this.socketProgress()
+            this.start = '停止运行'
+            this.isShowMask = 'none'
           } else {
-            this.start = "开始运行";
-            this.timeColor = "red";
-            this.countDown = 0;
-            this.timeBarPoupWidth = 0;
+            this.start = '开始运行'
+            this.timeColor = 'red'
+            this.countDown = 0
+            this.timeBarPoupWidth = 0
           }
-          this.changePhase();
+          this.changePhase()
         }
       } catch (error) {}
     },
     // 路口数据
     camera_response(res) {
       try {
-        let data = JSON.parse(res.data);
-        let that = this;
-        this.vehicle_list = [];
-        this.sumInfo = [];
-        if (data.length < 1 || !data) return;
-        data.map(v => {
+        let data = JSON.parse(res.data)
+        let that = this
+        this.vehicle_list = []
+        this.sumInfo = []
+        if (data.length < 1 || !data) return
+        data.map((v) => {
           if (v.direct_type === that.direct) {
-            if (v.direct_list.length < 1) return;
-            that.vehicle_list = v.direct_list;
-            that.sumInfo = v.sum_info;
+            if (v.direct_list.length < 1) return
+            that.vehicle_list = v.direct_list
+            that.sumInfo = v.sum_info
             if (that.sumInfo) {
-              that.sumInfo.flow_avg_sum = v.sum_info.flow_avg_sum.toFixed(0);
-              that.sumInfo.head_space_avg = v.sum_info.head_space_avg.toFixed(
-                2
-              );
-              that.sumInfo.head_time_avg = v.sum_info.head_time_avg.toFixed(2);
+              that.sumInfo.flow_avg_sum = v.sum_info.flow_avg_sum.toFixed(0)
+              that.sumInfo.head_space_avg = v.sum_info.head_space_avg.toFixed(2)
+              that.sumInfo.head_time_avg = v.sum_info.head_time_avg.toFixed(2)
               that.sumInfo.queeze_length_avg = v.sum_info.queeze_length_avg.toFixed(
-                0
-              );
-              that.sumInfo.space_rate_avg = v.sum_info.space_rate_avg.toFixed(
-                2
-              );
-              that.sumInfo.speed_avg_sum = v.sum_info.speed_avg_sum.toFixed(2);
-              that.sumInfo.time_rate_avg = v.sum_info.time_rate_avg.toFixed(2);
+                0,
+              )
+              that.sumInfo.space_rate_avg = v.sum_info.space_rate_avg.toFixed(2)
+              that.sumInfo.speed_avg_sum = v.sum_info.speed_avg_sum.toFixed(2)
+              that.sumInfo.time_rate_avg = v.sum_info.time_rate_avg.toFixed(2)
               that.sumInfo.car_type_sum.big = v.sum_info.car_type_sum.big.toFixed(
-                0
-              );
+                0,
+              )
               that.sumInfo.car_type_sum.small = v.sum_info.car_type_sum.small.toFixed(
-                0
-              );
+                0,
+              )
             }
 
-            v.direct_list.map(v => {
-              v.lane_calculate.head_time = v.lane_calculate.head_time.toFixed(
-                2
-              );
-              v.lane_calculate.speed_avg = v.lane_calculate.speed_avg.toFixed(
-                2
-              );
+            v.direct_list.map((v) => {
+              v.lane_calculate.head_time = v.lane_calculate.head_time.toFixed(2)
+              v.lane_calculate.speed_avg = v.lane_calculate.speed_avg.toFixed(2)
               v.lane_calculate.head_space = v.lane_calculate.head_space.toFixed(
-                2
-              );
+                2,
+              )
               v.lane_calculate.space_rate = v.lane_calculate.space_rate.toFixed(
-                2
-              );
-              v.lane_calculate.time_rate = v.lane_calculate.time_rate.toFixed(
-                2
-              );
-            });
+                2,
+              )
+              v.lane_calculate.time_rate = v.lane_calculate.time_rate.toFixed(2)
+            })
           }
-        });
-        this.vehicle_list.map(v => {
+        })
+        this.vehicle_list.map((v) => {
           if (v.lane_info.direct === 0) {
-            v.lane_info.direct = "未设置";
+            v.lane_info.direct = '未设置'
           } else if (v.lane_info.direct === 1) {
-            v.lane_info.direct = "左转";
+            v.lane_info.direct = '左转'
           } else if (v.lane_info.direct === 3) {
-            v.lane_info.direct = "直行";
+            v.lane_info.direct = '直行'
           } else if (v.lane_info.direct === 2) {
-            v.lane_info.direct = "右转";
+            v.lane_info.direct = '右转'
           }
-        });
+        })
       } catch (error) {}
     },
     // 人行数据
     walk_camera_response(res) {
       try {
-        let data = JSON.parse(res.data);
-        let that = this;
-        that.person_list = [];
-        if (!data || data.length < 1) return;
-        data.map(v => {
+        let data = JSON.parse(res.data)
+        let that = this
+        that.person_list = []
+        if (!data || data.length < 1) return
+        data.map((v) => {
           if (v.direct_type === that.direct) {
-            that.person_list = v.direct_list;
-            if (v.direct_list.length < 1) return;
-            v.direct_list.map(v => {
+            that.person_list = v.direct_list
+            if (v.direct_list.length < 1) return
+            v.direct_list.map((v) => {
               v.walk_calculate.person_exist = v.walk_calculate.person_exist.toFixed(
-                0
-              );
+                0,
+              )
               v.walk_calculate.person_volume = v.walk_calculate.person_volume.toFixed(
-                0
-              );
-            });
+                0,
+              )
+            })
           } else {
-            that.person_list = [];
+            that.person_list = []
           }
-        });
+        })
       } catch (error) {}
     },
     change_plan_response(res) {
-      this.$message.error(res.data);
-    }
+      this.$message.error(res.data)
+    },
   },
 
   methods: {
     async init() {
-      let phaseRes = await this.$http.get("phaselist/");
-      const { phase_list: phaseList } = phaseRes.data;
-      this.phaseTraffic = phaseList;
-      this.countDown = 0;
-      this.timeColor = "red";
-      this.timeBarPoupWidth = 0;
+      let phaseRes = await this.$http.get('phaselist/')
+      const { phase_list: phaseList } = phaseRes.data
+      this.phaseTraffic = phaseList
+      this.countDown = 0
+      this.timeColor = 'red'
+      this.timeBarPoupWidth = 0
       try {
-        let res = await this.getVideoAdress(this.direct);
-        this.playerOptions.sources[0].src = res.data.url;
+        let res = await this.getVideoAdress(this.direct)
+        this.playerOptions.sources[0].src = res.data.url
       } catch (error) {}
     },
     async getVideoAdress(direct) {
-      let res = await this.$http.get(`video/${direct}/`);
-      return res;
+      let res = await this.$http.get(`video/${direct}/`)
+      return res
     },
     // 获取中控台基础信息
     async getControlInfo() {
-      let crossRes = await this.$http.get("crossroadinfo/");
-      this.formdata.control_type = crossRes.data.road_extension_info.control_type + "";
-      this.formdata.control_model = crossRes.data.road_extension_info.control_model;
-      await this.changeSelect(this.formdata.control_type);
+      let crossRes = await this.$http.get('crossroadinfo/')
+      this.formdata.control_type =
+        crossRes.data.road_extension_info.control_type + ''
+      this.formdata.control_model =
+        crossRes.data.road_extension_info.control_model
+      await this.changeSelect(this.formdata.control_type)
       if (crossRes.data.road_base_info.equipment_type === 1) {
-        crossRes.data.road_base_info.equipment_type = "XHJ-CW-GA-FW1901";
+        crossRes.data.road_base_info.equipment_type = 'XHJ-CW-GA-FW1901'
       }
 
       // if (crossRes.data.road_base_info.control_type === 1) {
@@ -1842,114 +1892,125 @@ export default {
       // } else if (crossRes.data.road_base_info.control_type === 3) {
       //   crossRes.data.road_base_info.control_type = '固定时间控制'
       // }
-      this.crossInfo.control_model = crossRes.data.road_extension_info.control_model;
-      this.crossInfo.cross_name = crossRes.data.road_base_info.cross_name;
-      this.crossInfo.equipment_type = crossRes.data.road_base_info.equipment_type;
-      this.crossInfo.latitude = crossRes.data.road_base_info.latitude;
-      this.crossInfo.longitude = crossRes.data.road_base_info.longitude;
-      this.crossInfo.control_type = crossRes.data.road_extension_info.control_type;
-      this.crossInfo.plan_info.plan_name = crossRes.data.plan_info.plan_name;
-      this.crossInfo.plan_info.id = crossRes.data.plan_info.id;
-      this.crossInfo.tacplan_info.id = crossRes.data.tacplan_info.id;
+      this.crossInfo.control_model =
+        crossRes.data.road_extension_info.control_model
+      this.crossInfo.cross_name = crossRes.data.road_base_info.cross_name
+      this.crossInfo.equipment_type =
+        crossRes.data.road_base_info.equipment_type
+      this.crossInfo.latitude = crossRes.data.road_base_info.latitude
+      this.crossInfo.longitude = crossRes.data.road_base_info.longitude
+      this.crossInfo.control_type =
+        crossRes.data.road_extension_info.control_type
+      this.crossInfo.plan_info.plan_name = crossRes.data.plan_info.plan_name
+      this.crossInfo.plan_info.id = crossRes.data.plan_info.id
+      this.crossInfo.tacplan_info.id = crossRes.data.tacplan_info.id
       this.crossInfo.tacplan_info.plan_name =
         crossRes.data.tacplan_info.plan_name
     },
     // 确认修改方案
     confirm(formName) {
-      let isTrue = true;
-      this.$refs[formName].validate(valid => {
+      let isTrue = true
+      this.$refs[formName].validate((valid) => {
         if (valid) {
-          isTrue = false;
+          isTrue = false
         } else {
-          isTrue = true;
-          return false;
+          isTrue = true
+          return false
         }
-      });
+      })
       // alert(this.formdata.control_type)
-      if (isTrue) return;
+      if (isTrue) return
       if (
         this.copyPlanId === this.formdata.plan_id &&
         this.copyControlType === this.formdata.control_type
       ) {
-        return this.$message.warning("方案未修改!");
+        return this.$message.warning('方案未修改!')
       }
-      this.$confirm("切换方案将在此方案结束后执行, 是否继续?", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
-        center: true
+      this.$confirm('切换方案将在此方案结束后执行, 是否继续?', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        center: true,
       })
         .then(() => {
-          this.$http.put("editcontrol/", this.formdata).then(res => {
+          this.$http.put('editcontrol/', this.formdata).then((res) => {
             if (res.code === 200) {
-              this.setSuccess();
-              this.getControlInfo();
+              this.setSuccess()
+              this.getControlInfo()
             }
-          });
-          this.centerDialogVisible = false;
+          })
+          this.centerDialogVisible = false
         })
-        .catch(() => {});
+        .catch(() => {})
     },
     // 修改控制类型弹窗初始化
-    async changeType() {
-      this.centerDialogVisible = true;
-      await this.getControlInfo();
-      this.formdata.control_model = this.crossInfo.control_model;
+    async changeType(num, row) {
+      if (num === 1)
+        return this.$message.error('当前正在执行绿波方案,控制方案无法切换')
+      console.log(row)
+      this.centerDialogVisible = true
+      await this.getControlInfo()
+      // crossInfo.plan_info.id
+
+      this.formdata.control_model = this.crossInfo.control_model
       if (this.crossInfo.control_model != 1) {
         // alert(this.crossInfo.control_model)
-        this.formdata.control_type = 4 + "";
+        this.formdata.control_type = 4 + ''
       }
       // 暂存方案状态 做判断是否修改
-      this.copyControlType = this.crossInfo.control_type + "";
+      this.copyControlType = this.crossInfo.control_type + ''
       if (this.crossInfo.tacplan_info.id) {
-        this.copyPlanId = this.crossInfo.tacplan_info.id;
+        this.copyPlanId = this.crossInfo.tacplan_info.id
       } else {
-        this.copyPlanId = this.crossInfo.plan_info.id;
+        this.copyPlanId = this.crossInfo.plan_info.id
       }
+      // this.formdata.plan_id = this.crossInfo.plan_info.id
+      // this.$forceUpdate()
+      // console.log(this.formdata.plan_id)
     },
     // 获取策略控制列表
     async getPolicyPlan() {
-      let res = await this.$http.get("tacticsplanlist/");
-      this.selectList = res.data.tacticsplan_list;
-      // this.formdata.plan_id = this.crossInfo.tacplan_info.id;
-      this.formdata.plan_id = this.selectList[0].id;
-      // if (this.selectList.length === 1) {
-      //   this.formdata.plan_id = this.selectList[0].id;
-      // }
+      let res = await this.$http.get('tacticsplanlist/')
+      this.selectList = res.data.tacticsplan_list
+      this.formdata.plan_id = this.crossInfo.tacplan_info.id
+      // this.formdata.plan_id = this.selectList[0].id;
+      if (this.selectList.length === 1) {
+        this.formdata.plan_id = this.selectList[0].id
+      }
     },
     async getTimePlan() {
-      this.selectList = "";
+      this.selectList = ''
     },
     // 获取固定时间控制列表
     async getFixedPlan() {
-      let res = await this.$http.get("fixedplanlist/");
+      let res = await this.$http.get('fixedplanlist/')
       if (res.data.fixedplan_list.length > 0) {
-        this.selectList = res.data.fixedplan_list;
-        this.selectList = this.selectList.filter(v => {
-          return v.part_count > 0;
-        });
-        // this.formdata.plan_id = this.crossInfo.plan_info.id;
+        this.selectList = res.data.fixedplan_list
+        this.selectList = this.selectList.filter((v) => {
+          return v.part_count > 0
+        })
+        this.formdata.plan_id = this.crossInfo.plan_info.id
       }
-      this.formdata.plan_id = this.selectList[0].id;
-      // if (this.selectList.length === 1) {
-      //   this.formdata.plan_id = this.selectList[0].id;
-      // }
+      // this.formdata.plan_id = this.selectList[0].id;
+      if (this.selectList.length === 1) {
+        this.formdata.plan_id = this.selectList[0].id
+      }
     },
     // 获取dom数组
     getPhaseDom() {
-      let phaseDomList = document.querySelectorAll(".phase_img");
-      let footWayList = document.querySelectorAll(".foot_way_img");
-      let phaseDomArr = [];
+      let phaseDomList = document.querySelectorAll('.phase_img')
+      let footWayList = document.querySelectorAll('.foot_way_img')
+      let phaseDomArr = []
       // 傅老师优化的方法
-      Array.prototype.forEach.call(phaseDomList, v => {
-        let temp = [];
-        Array.prototype.forEach.call(v.children, vs => {
-          temp.unshift(vs);
-        });
-        phaseDomArr = phaseDomArr.concat(temp);
-      });
-      Array.prototype.forEach.call(footWayList, v => {
-        phaseDomArr.push(v);
-      });
+      Array.prototype.forEach.call(phaseDomList, (v) => {
+        let temp = []
+        Array.prototype.forEach.call(v.children, (vs) => {
+          temp.unshift(vs)
+        })
+        phaseDomArr = phaseDomArr.concat(temp)
+      })
+      Array.prototype.forEach.call(footWayList, (v) => {
+        phaseDomArr.push(v)
+      })
       // 自己的问题代码
       // Object.values(phaseDomList).map(v => {
       //   Object.values(v.children).reverse().map(v => {
@@ -1959,42 +2020,42 @@ export default {
       // Object.values(footWayList).map(v => {
       //   phaseDomArr.push(v)
       // })
-      return phaseDomArr;
+      return phaseDomArr
     },
     // 改变相位图标
     changePhase() {
-      this.phaseArr = [];
-      this.phaseList = this.phase_info;
-      this.phaseList.map(v => {
-        this.phaseArr.push(v.status);
-      });
-      let phaseArrDom = this.getPhaseDom();
+      this.phaseArr = []
+      this.phaseList = this.phase_info
+      this.phaseList.map((v) => {
+        this.phaseArr.push(v.status)
+      })
+      let phaseArrDom = this.getPhaseDom()
       for (let i = 0; i < this.phaseArr.length; i++) {
         if (this.phaseArr[i] === 3) {
-          phaseArrDom[i].children[0].classList.add("active");
-          phaseArrDom[i].children[1].classList.remove("active");
-          phaseArrDom[i].children[2].classList.remove("active");
-          phaseArrDom[i].children[3].classList.remove("active");
+          phaseArrDom[i].children[0].classList.add('active')
+          phaseArrDom[i].children[1].classList.remove('active')
+          phaseArrDom[i].children[2].classList.remove('active')
+          phaseArrDom[i].children[3].classList.remove('active')
         } else if (this.phaseArr[i] === 2) {
-          phaseArrDom[i].children[1].classList.add("active");
-          phaseArrDom[i].children[0].classList.remove("active");
-          phaseArrDom[i].children[2].classList.remove("active");
-          phaseArrDom[i].children[3].classList.remove("active");
+          phaseArrDom[i].children[1].classList.add('active')
+          phaseArrDom[i].children[0].classList.remove('active')
+          phaseArrDom[i].children[2].classList.remove('active')
+          phaseArrDom[i].children[3].classList.remove('active')
         } else if (this.phaseArr[i] === 1) {
-          phaseArrDom[i].children[2].classList.add("active");
-          phaseArrDom[i].children[1].classList.remove("active");
-          phaseArrDom[i].children[0].classList.remove("active");
-          phaseArrDom[i].children[3].classList.remove("active");
+          phaseArrDom[i].children[2].classList.add('active')
+          phaseArrDom[i].children[1].classList.remove('active')
+          phaseArrDom[i].children[0].classList.remove('active')
+          phaseArrDom[i].children[3].classList.remove('active')
         } else if (this.phaseArr[i] === 4) {
-          phaseArrDom[i].children[3].classList.add("active");
-          phaseArrDom[i].children[1].classList.remove("active");
-          phaseArrDom[i].children[0].classList.remove("active");
-          phaseArrDom[i].children[2].classList.remove("active");
+          phaseArrDom[i].children[3].classList.add('active')
+          phaseArrDom[i].children[1].classList.remove('active')
+          phaseArrDom[i].children[0].classList.remove('active')
+          phaseArrDom[i].children[2].classList.remove('active')
         }
       }
     },
     // 停止
-    stop () {
+    stop() {
       // if (this.socketData.control_status !== '00') {
       //   return this.$message.error('信号机故障')
       // }
@@ -2002,23 +2063,23 @@ export default {
       this.$confirm('是否停止运行', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
-        center: true
+        center: true,
       })
         .then(() => {
-          this.lightStatus.status = 4;
-          this.$http.post("emergencycontrol/", this.lightStatus).then(res => {
-            if (res.code !== 200) return;
+          this.lightStatus.status = 4
+          this.$http.post('emergencycontrol/', this.lightStatus).then((res) => {
+            if (res.code !== 200) return
             this.$message({
-              type: "success",
-              message: "指令已下发!"
-            });
-            this.start = "开始运行";
-          });
+              type: 'success',
+              message: '指令已下发!',
+            })
+            this.start = '开始运行'
+          })
         })
-        .catch(() => {});
+        .catch(() => {})
     },
     // 开始
-    started () {
+    started() {
       // if (this.socketData.control_status !== '00') {
       //   return this.$message.error('信号机故障')
       // }
@@ -2026,23 +2087,23 @@ export default {
       this.$confirm('是否开始运行', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
-        center: true
+        center: true,
       })
         .then(() => {
-          this.lightStatus.status = 3;
-          this.$http.post("emergencycontrol/", this.lightStatus).then(res => {
-            if (res.code !== 200) return;
+          this.lightStatus.status = 3
+          this.$http.post('emergencycontrol/', this.lightStatus).then((res) => {
+            if (res.code !== 200) return
             this.$message({
-              type: "success",
-              message: "指令已下发!"
-            });
-            this.start = "停止运行";
-          });
+              type: 'success',
+              message: '指令已下发!',
+            })
+            this.start = '停止运行'
+          })
         })
-        .catch(() => {});
+        .catch(() => {})
     },
     // 全红
-    beginRed () {
+    beginRed() {
       // if (this.socketData.control_status !== '00') {
       //   return this.$message.error('信号机故障')
       // }
@@ -2050,23 +2111,23 @@ export default {
       this.$confirm('是否全部红灯', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
-        center: true
+        center: true,
       })
         .then(() => {
-          this.lightStatus.status = 1;
-          this.$http.post("emergencycontrol/", this.lightStatus).then(res => {
-            if (res.code !== 200) return;
+          this.lightStatus.status = 1
+          this.$http.post('emergencycontrol/', this.lightStatus).then((res) => {
+            if (res.code !== 200) return
             this.$message({
-              type: "success",
-              message: "指令已下发"
-            });
-            this.start = "开始运行";
-          });
+              type: 'success',
+              message: '指令已下发',
+            })
+            this.start = '开始运行'
+          })
         })
-        .catch(() => {});
+        .catch(() => {})
     },
     // 黄闪
-    beginYellow () {
+    beginYellow() {
       // if (this.socketData.control_status !== '00') {
       //   return this.$message.error('信号机故障')
       // }
@@ -2074,163 +2135,127 @@ export default {
       this.$confirm('是否开始黄闪', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
-        center: true
+        center: true,
       })
         .then(() => {
-          this.lightStatus.status = 2;
-          this.$http.post("emergencycontrol/", this.lightStatus).then(res => {
-            if (res.code !== 200) return;
+          this.lightStatus.status = 2
+          this.$http.post('emergencycontrol/', this.lightStatus).then((res) => {
+            if (res.code !== 200) return
             this.$message({
-              type: "success",
-              message: "指令已下发"
-            });
-            this.start = "开始运行";
-          });
+              type: 'success',
+              message: '指令已下发',
+            })
+            this.start = '开始运行'
+          })
         })
-        .catch(() => {});
+        .catch(() => {})
     },
     // 切换视频
     async changeVideo(tab) {
-      this.sumInfo = [];
-      this.vehicle_list = [];
-      this.playerOptions.sources[0].src = "rtmp://192.168.245.37:1935/mylive/";
-      if (tab.index === "0") {
-        this.direct = 4;
-      } else if (tab.index === "1") {
-        this.direct = 2;
-      } else if (tab.index === "2") {
-        this.direct = 3;
-      } else if (tab.index === "3") {
-        this.direct = 1;
-      } else if (tab.index === "4") {
-        this.direct = 8;
+      this.sumInfo = []
+      this.vehicle_list = []
+      this.playerOptions.sources[0].src = 'rtmp://192.168.245.37:1935/mylive/'
+      if (tab.index === '0') {
+        this.direct = 4
+      } else if (tab.index === '1') {
+        this.direct = 2
+      } else if (tab.index === '2') {
+        this.direct = 3
+      } else if (tab.index === '3') {
+        this.direct = 1
+      } else if (tab.index === '4') {
+        this.direct = 8
         // this.playerOptions.sources[0].src =
         //   'rtmp://192.168.245.37:1935/mylive/test1'
-      } else if (tab.index === "5") {
-        this.direct = 6;
-      } else if (tab.index === "6") {
-        this.direct = 7;
-      } else if (tab.index === "7") {
-        this.direct = 5;
+      } else if (tab.index === '5') {
+        this.direct = 6
+      } else if (tab.index === '6') {
+        this.direct = 7
+      } else if (tab.index === '7') {
+        this.direct = 5
       }
       try {
-        let res = await this.getVideoAdress(this.direct);
-        this.playerOptions.sources[0].src = res.data.url;
+        let res = await this.getVideoAdress(this.direct)
+        this.playerOptions.sources[0].src = res.data.url
       } catch (err) {}
     },
     // 修改控制类型
     changeSelect(val) {
-      if (val === "1") {
-        this.getPolicyPlan();
-      } else if (val === "2") {
-        this.getTimePlan();
-      } else if (val === "3") {
-        this.getFixedPlan();
-        this.formdata.plan_id=''
-      } else if (val === "4") {
-        this.getPolicyPlan();
+      if (val === '1') {
+        this.getPolicyPlan()
+      } else if (val === '2') {
+        this.getTimePlan()
+      } else if (val === '3') {
+        this.getFixedPlan()
+        this.formdata.plan_id = ''
+      } else if (val === '4') {
+        this.getPolicyPlan()
       }
     },
     // 实时更改进度条
     socketProgress() {
       // this.timeNum = 0
-      this.pastTime = 0;
-      this.timeList = [];
-      let yellowTime = this.socketData.map_info.part_info.yellow_time; // 黄灯倒计时
-      let redTime = this.socketData.map_info.part_info.red_time; // 红灯倒计时
-      let greenTime = this.socketData.map_info.part_info.green_time; // 绿灯倒计时
-      this.socketData.roll_part_info.map(v => {
+      this.pastTime = 0
+      this.timeList = []
+      let yellowTime = this.socketData.map_info.part_info.yellow_time // 黄灯倒计时
+      let redTime = this.socketData.map_info.part_info.red_time // 红灯倒计时
+      let greenTime = this.socketData.map_info.part_info.green_time // 绿灯倒计时
+      this.socketData.roll_part_info.map((v) => {
         this.timeList.push(
-          { time: v.part_info.green_time, color: "#00D142" },
-          { time: v.part_info.yellow_time, color: "#F8E71C" },
-          { time: v.part_info.red_time, color: "red" }
-        );
-      });
-      let lightPart = yellowTime === null ? (redTime === null ? 1 : 3) : 2;
+          { time: v.part_info.green_time, color: '#00D142' },
+          { time: v.part_info.yellow_time, color: '#F8E71C' },
+          { time: v.part_info.red_time, color: 'red' },
+        )
+      })
+      let lightPart = yellowTime === null ? (redTime === null ? 1 : 3) : 2
       this.part_num =
         this.socketData.map_info.part_info.part_num > 0
           ? (this.socketData.map_info.part_info.part_num - 1) * 3 + lightPart
-          : lightPart;
+          : lightPart
       try {
         while (this.part_num-- > 0) {
           if (this.part_num >= 1) {
             this.pastTime =
-              this.pastTime + this.timeList[this.part_num - 1].time;
+              this.pastTime + this.timeList[this.part_num - 1].time
           }
         }
         this.part_num =
-          (this.socketData.map_info.part_info.part_num - 1) * 3 + lightPart;
+          (this.socketData.map_info.part_info.part_num - 1) * 3 + lightPart
         this.pastTime =
           this.pastTime +
           this.timeList[this.part_num - 1].time -
           greenTime -
           yellowTime -
-          redTime;
+          redTime
         if ((this.pastTime * 100) / this.timeNum >= 100) {
-          this.pastTime = 0;
+          this.pastTime = 0
         }
-        this.timeBarPoupWidth = (this.pastTime * 100) / this.timeNum;
+        this.timeBarPoupWidth = (this.pastTime * 100) / this.timeNum
       } catch (error) {}
     },
     setSuccess() {
       this.$message({
-        type: "success",
-        message: "指令已下发"
-      });
+        type: 'success',
+        message: '指令已下发',
+      })
     },
     setError() {
       this.$message({
-        type: "error",
-        message: "操作失败"
-      });
-    }
+        type: 'error',
+        message: '操作失败',
+      })
+    },
   },
   beforeDestroy() {
-    clearTimeout(this.setTimeout1);
-    this.setTimeout1 = null;
-  }
-};
+    clearTimeout(this.setTimeout1)
+    this.setTimeout1 = null
+  },
+}
 </script>
 
 <style scoped lang="stylus">
 @import '../assets/css/consoles.styl'
-.main-layout
-  .el-dialog__header
-    text-align left
-.round i
-  background url('../assets/images/svg/radio-default.svg') no-repeat
-.controlInfo .is-checked .round i
-  background url('../assets/images/svg/radio-active.svg') no-repeat
-.nowrap
-  white-space nowrap
-  text-overflow ellipsis
-  overflow hidden
-.controlInfo
-  padding-top 20px
-  .round
-    position relative
-    top -12px
-    left 15px
-    margin-left 10px
-.data_style
-  display: inline-block;
-  width: 120px;
-  height: 41px;
-  text-align: left;
-  padding: 0 25px;
-.f_left
-  text-align left
-.f_center
-  text-align center
-.f_right
-  text-align right
-.f_left, .f_center, .f_right
-  h5
-    display inline-block
-.center_num
-  display: inline-block;
-  font-weight 600
-  padding: 37% 0 0 47%;
+@import '../assets/css/consolesIndex.styl'
 </style>
 <style lang="stylus">
 .main-layout
@@ -2260,16 +2285,16 @@ export default {
         text-align center
   .el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active
     color: #409EFF;
-    background-color: white;  
+    background-color: white;
   .el-tabs--border-card>.el-tabs__header .el-tabs__item
     color: rgba(102,102,102,1);
     border: 1px solid #dcdfe6;
-    background: #E5E5E5; 
+    background: #E5E5E5;
     margin-top 1px
   .el-tabs--border-card>.el-tabs__header
     width: 90%;
     margin: 0 auto;
-  .el-tabs--border-card 
+  .el-tabs--border-card
     border: 0 none
   .carwalks .el-tab-pane p
     padding: 0
