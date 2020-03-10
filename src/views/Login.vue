@@ -96,7 +96,7 @@ export default {
   },
   methods: {
     async handleLogin (formName) {
-      if (window.localStorage.getItem('isBan') === '3') return this.$message.error('设备已被禁用,请联系中心管理员授予权限!')
+      if (window.localStorage.getItem('isBan') === '3') { return this.$message.error('设备已被禁用,请联系中心管理员授予权限!') }
       this.$refs[formName].validate(valid => {
         if (valid) {
         } else {
@@ -113,7 +113,7 @@ export default {
           this.$cookies.set('singleToken', singleToken)
           this.$cookies.set('is_set', res.data.is_set)
           this.$cookies.set('username', this.formData.username)
-          // this.$router.push({'name': 'crossinfo'})
+          this.$cookies.set('abcddddd', 12121212121212121)
           res.data.is_set === 2
             ? this.$router.push({ name: 'crossinfo' })
             : this.$router.push({ name: 'consoles' })
@@ -128,7 +128,7 @@ export default {
     //   console.log(this.$http.defaults.baseURL)
     //   console.log('development')
     // }
-    console.log(this.$route.params)
+    // console.log(this.$route.params)
   }
 }
 </script>

@@ -12,15 +12,13 @@ MyHttpServer.install = Vue => {
   // 请求拦截
   axios.interceptors.request.use(
     config => {
+      // axios.defaults.headers.common['abc'] = '121212121'
       if (config.url === 'system/update/step/' || config.url === '/system/update/firmware/') {
         if (process.env.NODE_ENV === 'production') {
           axios.defaults.baseURL = '/api/'
         } else if (process.env.NODE_ENV === 'development') {
           axios.defaults.baseURL = `${customizingPortIp.development}` + ':' + `${customizingPort.upgrade}` + '/api/'
         }
-      }
-      if (config.url !== 'activate/') {
-        config.headers.common['activate'] = true
       }
       if (config.url !== 'login/') {
         const singleToken = Cookies.get('singleToken')
@@ -57,12 +55,9 @@ MyHttpServer.install = Vue => {
         if (data.code === 4008) {
           this.$cookies.remove('token')
           window.location.href = '/login'
-        } else if (data.code === 4000) {
-          window.location.href = '/activate'
         }
         Message.error(data.msg)
       }
-
       return res.data
     },
     error => {

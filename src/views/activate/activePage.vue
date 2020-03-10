@@ -12,7 +12,7 @@
                     <p>请点击下面按钮直接进入系统<span style="color: #FF7416">登陆页面</span></p>
                     <el-button type="primary" @click="goToPage">点击进入 &gt;</el-button>
                   </div>
-                  <div v-else class="content">
+                  <div v-if="flag===2"  class="content">
                     <img src="@/assets/images/error.png" alt="">
                     <h3>激活失败</h3>
                     <p>激活失败，请检查网络！</p>
@@ -31,31 +31,21 @@ import ActivePage from '@/components/layout/active-header.vue'
 export default {
   data () {
     return {
-      flag: this.$route.params.flag
+      flag: window.localStorage.getItem('flag')
     }
   },
   mounted () {
-    console.log(this.$route.params.flag)
+    // console.log(this.$route.params.flag)
   },
   components: {
     ActivePage
   },
   methods: {
-    toLogin () {
-      this.$router.replace({path: '/login'})
-      window.localStorage.setItem('flag', '1')
-    },
-    toError () {
-      this.$router.replace({path: '/equipmentActive'})
-      window.localStorage.setItem('flag', '0')
-    }
-  },
-  computed: {
     goToPage () {
-      if (this.flag) {
-        return this.toLogin
-      } else {
-        return this.toError
+      if (this.flag === 1) {
+        this.$router.replace({path: '/login'})
+      } else if (this.flag === 0) {
+        this.$router.replace({path: '/equipmentActive'})
       }
     }
   }

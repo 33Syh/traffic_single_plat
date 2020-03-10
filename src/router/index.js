@@ -1,9 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Cookies from 'vue-cookies'
-import { Message } from 'element-ui'
+// import { Message } from 'element-ui'
 Vue.use(Router)
-
 const router = new Router({
   // mode: 'history',
   base: '/nice/app/',
@@ -103,24 +102,24 @@ const router = new Router({
           component: resovle =>
             import('@/views/controls/TimesControl.vue').then(resovle)
         },
-        {
-          path: '/cardatas',
-          name: 'cardatas',
-          component: resovle =>
-            import('@/views/datas/CarDatas.vue').then(resovle)
-        },
-        {
-          path: '/tacticsdatas',
-          name: 'tacticsdatas',
-          component: resovle =>
-            import('@/views/datas/TacticsDatas.vue').then(resovle)
-        },
-        {
-          path: '/timesdatas',
-          name: 'timesdatas',
-          component: resovle =>
-            import('@/views/datas/TimesDatas.vue').then(resovle)
-        },
+        // {
+        //   path: '/cardatas',
+        //   name: 'cardatas',
+        //   component: resovle =>
+        //     import('@/views/datas/CarDatas.vue').then(resovle)
+        // },
+        // {
+        //   path: '/tacticsdatas',
+        //   name: 'tacticsdatas',
+        //   component: resovle =>
+        //     import('@/views/datas/TacticsDatas.vue').then(resovle)
+        // },
+        // {
+        //   path: '/timesdatas',
+        //   name: 'timesdatas',
+        //   component: resovle =>
+        //     import('@/views/datas/TimesDatas.vue').then(resovle)
+        // },
         {
           path: '/roadconfig',
           name: 'roadconfig',
@@ -183,28 +182,18 @@ router.beforeEach((to, from, next) => {
     history.go(1)
     return
   }
-  if (to.name === 'equipmentactive') { // 已激活不能去 equipmentactive 页面
-    if (window.localStorage.getItem('flag') === '1') {
-      next('login')
-    }
-  }
-  if (to.name === 'login') {
-    if (window.localStorage.getItem('flag') === '0') { // 没有激活不能去 login 页面
-      next('/equipmentactive')
-    } else {
-      next()
-    }
-  } else {
+  if (to.name !== 'login' && to.name !== 'activate' && to.name !== 'equipmentactive') {
     const singleToken = Cookies.get('singleToken')
     if (!singleToken) {
       router.push({
         name: 'login'
       })
-      Message.warning('请先登录')
-      return
+      next()
     }
+  } else {
     next()
   }
+  next()
 })
 
 export default router

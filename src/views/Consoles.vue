@@ -1454,9 +1454,6 @@
               </el-radio-group>
               <span v-else>绿波协调控制</span>
             </el-form-item>
-            {{ crossInfo.plan_info.id }}
-            ----
-            {{ formdata.plan_id }}
             <el-form-item label="控制方案:" style="height:32px" prop="plan_id">
               <el-select v-model="formdata.plan_id" placeholder="请选择方案">
                 <el-option
@@ -1946,7 +1943,6 @@ export default {
     async changeType(num, row) {
       if (num === 1)
         return this.$message.error('当前正在执行绿波方案,控制方案无法切换')
-      console.log(row)
       this.centerDialogVisible = true
       await this.getControlInfo()
       // crossInfo.plan_info.id
@@ -1965,7 +1961,6 @@ export default {
       }
       // this.formdata.plan_id = this.crossInfo.plan_info.id
       // this.$forceUpdate()
-      // console.log(this.formdata.plan_id)
     },
     // 获取策略控制列表
     async getPolicyPlan() {

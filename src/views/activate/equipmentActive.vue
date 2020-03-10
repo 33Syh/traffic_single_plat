@@ -155,15 +155,13 @@ export default {
       this.$http.post('activate/', {
         ...this.equipActionList
       }).then((res) => {
-        if (res.code === 200) {
-          // if (res.data.status === 1) {
+        if (res.data.status === 1) {
           window.localStorage.setItem('flag', '1')
           this.$router.push({name: 'activepage', params: {flag: true}})
         } else {
           window.localStorage.setItem('flag', '0')
           this.$router.push({name: 'activepage', params: {flag: false}})
         }
-        // }
       })
     }
   },

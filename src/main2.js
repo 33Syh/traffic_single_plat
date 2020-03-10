@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import App from './App'
-import axios from 'axios'
 import router from './router'
 import Cookies from 'vue-cookies'
 import MyHttpServer from '@/plugins/http.js'
@@ -16,6 +15,10 @@ import promise from 'es6-promise'
 import HappyScroll from 'vue-happy-scroll'
 import 'vue-happy-scroll/docs/happy-scroll.css'
 import GeminiScrollbar from 'vue-gemini-scrollbar'
+import {
+  customizingPort,
+  customizingPortIp
+} from '../src/plugins/customizingConfig'
 // import 'lib-flexible/flexible.js'
 import BaiduMap from 'vue-baidu-map'
 Vue.use(BaiduMap, {
@@ -25,7 +28,6 @@ Vue.use(GeminiScrollbar)
 promise.polyfill()
 Vue.use(VideoPlayer)
 Vue.use(HappyScroll)
-Vue.prototype.$axios = axios
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(Cookies)
@@ -41,14 +43,38 @@ const store = new Vuex.Store({
     }
   }
 })
-
-Vue.use(
-  new VueSocketIO({
-    debug: false,
-    connection: '/get_redis_mapinfo' //  kaikai
-    // connection: '/get_redis_mapinfo' //  kaikai
-  })
-)
+let str = ''
+if (process.env.NODE_ENV === 'production') {
+  str = '/get_redis_mapinfo/'
+  Vue.use(
+    new VueSocketIO({
+      debug: false,
+      connection: str
+    })
+  )
+} else if (process.env.NODE_ENV === 'development') {
+  str = `${customizingPortIp.development}` + ':' + `${customizingPort.normal}` + `/get_redis_mapinfo`
+  Vue.use(
+    new VueSocketIO({
+      debug: false,
+      connection: str
+    })
+  )
+}
+// Vue.use(
+//   new VueSocketIO({
+//     debug: false,
+//     connection:
+//       process.env.NODE_ENV === 'production'
+//         ? '/get_redis_mapinfo/'
+//         : process.env.NODE_ENV === 'development'
+//           ? `${customizingPortIp.development}` +
+//           ':' +
+//           `${customizingPort.normal}` +
+//           `/get_redis_mapinfo`
+//           : ''
+//   })
+// )
 
 /* eslint-disable no-new */
 new Vue({

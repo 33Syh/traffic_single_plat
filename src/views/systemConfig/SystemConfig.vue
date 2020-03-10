@@ -330,16 +330,16 @@ export default {
     this.initNetwork()
     localStorage.setItem('updataDia', false)
     this.upgradeAddress = `${customizingPortIp.development}` + ':' + `${customizingPort.upgrade}` + '/api'
-    console.log('开发环境' + this.upgradeAddress)
+    // console.log('开发环境' + this.upgradeAddress)
     // 处理升级地址
     if (process.env.NODE_ENV === 'production') {
       var hostAndPort = document.location.host
       var hostAddress = hostAndPort.substr(0, hostAndPort.length - 4)
       this.upgradeAddress = 'http://' + hostAddress + `${customizingPort.upgrade}` + '/api'
-      console.log('线上环境' + this.upgradeAddress)
+      // console.log('线上环境' + this.upgradeAddress)
     } else if (process.env.NODE_ENV === 'development') {
       this.upgradeAddress = `${customizingPortIp.development}` + ':' + `${customizingPort.upgrade}` + '/api'
-      console.log('开发环境' + this.upgradeAddress)
+      // console.log('开发环境' + this.upgradeAddress)
     }
   },
   watch: {
@@ -384,7 +384,7 @@ export default {
     async initNetwork () {
       let res = await this.$http.get('/crossroadinfo/')
       if (res.code !== 200) return
-      console.log(this.datas)
+      // console.log(this.datas)
       this.datas = res.data.road_base_info
       this.update_at = this.datas.update_at
       this.siteDate.road_ip = this.datas.road_ip
@@ -458,7 +458,7 @@ export default {
       if (res.code !== 200) {
         this.$message.error(res.msg)
       }
-      console.log(res.data)
+      // console.log(res.data)
       this.step = res.data.step
       this.percenStatus = res.data.status
       if (res.data.status === 1) {
