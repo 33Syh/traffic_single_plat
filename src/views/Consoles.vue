@@ -1122,7 +1122,7 @@
               <h4 class="lable_name">摄像头状态</h4>
               <ul
                 id="consoles_device_details_Camera_list"
-                style="display:block;list-style-type:none;line-height: 20px;letter-spacing:1px;"
+                style="display:block;padding-bottom:11px;list-style-type:none;line-height: 20px;letter-spacing:1px;"
               >
                 <li>
                   <span>北进口:</span>
