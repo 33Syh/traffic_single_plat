@@ -53,6 +53,9 @@ MyHttpServer.install = Vue => {
         Loading.service().close()
       }
       let { data } = res
+      if (data.code === 4010) {
+        window.location.href = '/login'
+      }
       if (data.code !== 200) {
         if (data.code === 4008) {
           this.$cookies.remove('token')

@@ -16,10 +16,10 @@ export default {
         window.localStorage.setItem('isBan', 1)
         this.$router.push({path: '/login'})
       } else if (res.data.status === 3) { // 为 3 则代码禁用
-        window.localStorage.setItem('isBan', 2)
+        window.localStorage.setItem('isBan', 3)
         this.$router.push({path: '/login'})
       } else if (res.data.status === 0) { // 为 0 未激活
-        window.localStorage.setItem('isBan', 3)
+        window.localStorage.setItem('isBan', 0)
         this.$router.push({path: '/equipmentactive'})
       }
     }
