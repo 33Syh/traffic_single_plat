@@ -19,9 +19,9 @@ MyHttpServer.install = Vue => {
           axios.defaults.baseURL = `${customizingPortIp.development}` + ':' + `${customizingPort.upgrade}` + '/api/'
         }
       }
-      if (config.url !== 'activate/') {
-        config.headers.common['activate'] = true
-      }
+      // if (config.url !== 'activate/') {
+      //   config.headers.common['activate'] = true
+      // }
       if (config.url !== 'login/') {
         const singleToken = Cookies.get('singleToken')
         if (singleToken) {
@@ -58,7 +58,7 @@ MyHttpServer.install = Vue => {
           this.$cookies.remove('token')
           window.location.href = '/login'
         } else if (data.code === 4000) {
-          window.location.href = '/activate'
+          window.location.href = '/#/activate'
         }
         Message.error(data.msg)
       }

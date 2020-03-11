@@ -3,10 +3,12 @@
     <div class="main-layout">
       <div class="monitor_title">
         <h5>视频监控</h5>
+        {{cameraLists}}-----
       </div>
       <el-row :gutter="24">
         <el-col :span="18" v-if="!isShow">
           <el-card shadow="always" class="monitor_layout">
+
             <el-row v-if="cameraLists.length > 0" :gutter="20" >
               <div v-for="(item, i) in cameraLists" :key="i">
                 <el-col :span="8" v-if="item.id">

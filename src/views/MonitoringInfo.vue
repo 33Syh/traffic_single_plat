@@ -55,7 +55,6 @@
                           <span class="lable_name">路口人流量 </span>:
                           {{!item.socketData ? '' : item.socketData.direct_list[0].walk_calculate.person_volume}}人/分
                         </P>
-
                       </div>
                       <div class="video_data_info" v-if="!item.socketData">
                         <span class="warning_info">
@@ -195,6 +194,7 @@
                 {{!videoInfoList[0].socketData.direct_list[0] ? '' : videoInfoList[0].socketData.direct_list[0].walk_calculate.person_volume}}人/分
               </p>
             </div>
+
             <div v-if="!videoInfoList[0].socketData">
               <span class="warning_infos">
                 该方向未配置检测区
@@ -304,7 +304,9 @@ export default {
             }
           })
         })
-      } catch (error) {}
+      } catch (error) {
+        console.log(error)
+      }
     },
     // 人行数据
     walk_camera_response (res) {
@@ -367,6 +369,7 @@ export default {
           arr.socketData = {}
         }
       })
+      console.log(arr)
       this.cameraLists = arr
       this.cloneVideo()
       if (arr.length < 1) return
@@ -379,7 +382,7 @@ export default {
     },
     async getRoadInfo () {
       let res = await this.$http.get('crossroadinfo/')
-      let roadInfo = res.data
+      let roadInfo = res.data.road_base_info
       this.roadInfo.cross_name = roadInfo.cross_name
       this.roadInfo.equipment_type = roadInfo.equipment_type + ''
       this.roadInfo.longitude = roadInfo.longitude

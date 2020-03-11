@@ -46,7 +46,6 @@ Vue.use(
   new VueSocketIO({
     debug: false,
     connection: '/get_redis_mapinfo' //  kaikai
-    // connection: '/get_redis_mapinfo' //  kaikai
   })
 )
 
