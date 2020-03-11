@@ -53,14 +53,13 @@ MyHttpServer.install = Vue => {
         Loading.service().close()
       }
       let { data } = res
-      if (data.code === 4010) {
-        window.location.href = '/login'
-      }
       if (data.code !== 200) {
-        if (data.code === 4008) {
+        if (data.code === 4010) { // 被禁用
+          window.location.href = '/#/login'
+        } else if (data.code === 4008) { // 退出登陆或者token失效
           this.$cookies.remove('token')
-          window.location.href = '/login'
-        } else if (data.code === 4000) {
+          window.location.href = '/#/login'
+        } else if (data.code === 4000) { // 未激活
           window.location.href = '/#/activate'
         }
         Message.error(data.msg)

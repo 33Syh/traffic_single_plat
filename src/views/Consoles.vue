@@ -1028,7 +1028,7 @@
         <el-col :span="4">
           <el-card style="padding-bottom:63px" shadow="always">
             <div id="consoles_device_details">
-              <h4 class="lable_name">设备详情</h4>
+              <h4 class="lable_name">运行信息</h4>
               <ul
                 id="consoles_device_details_list"
                 style="display:block;list-style-type:none;line-height: 20px;letter-spacing:1px;"
